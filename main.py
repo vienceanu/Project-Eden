@@ -23,6 +23,8 @@ def intro():
             help_file = open("help.txt")
             file_contents = help_file.read()
             print(file_contents)
+        # elif val == 'Start' or val == 'start':
+        #     startGame()
         else:
             print("Command not recognized")        
 
