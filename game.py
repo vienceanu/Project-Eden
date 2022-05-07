@@ -1,4 +1,5 @@
 from Stages import *
+from Monster import *
 from Ship import Ship as Ship
 
 
@@ -7,6 +8,9 @@ stages = {"Mercury": "Item1", "Moon": "Item1",
           "Uranus": "Item1", "Jupiter": "Item1", 
           "Venus": "Item1", "Mars": "Item1"
           , "Pluto": "Item1", "Sun": "Solar Shielding"}
+
+#These are our monsters
+monsters = ("Pirate", "Captain", "Alien", "Alien Queen")
 
 exit = False
 inputs = ()

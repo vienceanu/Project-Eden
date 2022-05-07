@@ -1,3 +1,6 @@
+#These are the monsters
+
+
 class Pirate:
     Hp = 20
     DMG = 2
