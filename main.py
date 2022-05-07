@@ -1,6 +1,6 @@
 #Main page, this is where we import from other files
 #Import Packages
-
+from game import run
 
 
 ##########################################################
@@ -27,8 +27,9 @@ def intro():
             help_file = open("story.txt")
             file_contents = help_file.read()
             print(file_contents)
-        # elif val == 'Start' or val == 'start':
-        #     startGame()
+        elif val == 'Start' or val == 'start':
+            run()
+            pass
         else:
             print("Command not recognized")        
 
