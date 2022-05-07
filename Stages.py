@@ -3,14 +3,28 @@ class Mercury:
     Locations = ["Uranium Field's"]
 
 class Moon:
-    Resources = ["iron", "titanium"]
+    Resources = ["Iron", "Titanium"]
     Locations = ["Moon's Core", "Crater Tycho", "Mineral Depository 1"]
     
 class Uranus:
-    Resources = ["water"]
+    Resources = ["Water"]
     Locations = ["Deux Sommets", "Dangerous Hole"]
     
 class Jupiter:
     Resources = ["Hydrogen", "Helium"]
     Locations = ["Mt. Jupiter", "Alien Hole", "Storm's Eye"]
     
+class Venus:
+    Resources = ["Iron"]
+    Locations = ["Makeout Point", "Aphrodite's Channel", "Clamshell Cove"]
+    
+class Mars:
+    Resources = ["Iron", "Titanium"]
+    Locations = ["Olympus Mons", "South Pole", "The Great Desert"]
+    
+class Pluto:
+    Locations = ["Pirate Hideout", "Endles Tundra"]
+    
+class Sun:
+    Resources = ["Hydrogen"]
+    Locations = ["Orbit"]
