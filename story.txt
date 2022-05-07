@@ -12,15 +12,15 @@ and accommodation.
 
 Participants of civilian space mining are to commit to a standard mission duration of 5 years, with 
 a default supply of fuel, food, water, oxygen, and necessities for the first 6 months and are subject
- to self-subsistence using the 3D printing technology onboard thereafter. Both the spaceship and the 
- 3D printer are powered by mined minerals, with uranium being 50 times more energy-efficient than 
- lithium. Thanks to the presence of the near-zero gravity in space, there is no loading limit when 
- it comes to the accumulation of uranium and lithium, however, participants should consider depositing 
- regularly at depositories installed on each planet in the solar system due to reports of piracy 
- uranium and lithium are considered hot commodities in space, resulting in civilian spaceships being 
- the target of other life forms. There are 2 ways to self preserve: fight and seize your attacker’s 
- loot or pay the ransom with your own resources or currency. Mining in certain locations wakes up 
- hostile aliens, which force you to fight or flee.
+to self-subsistence using the 3D printing technology onboard thereafter. Both the spaceship and the 
+3D printer are powered by mined minerals, with uranium being 50 times more energy-efficient than 
+lithium. Thanks to the presence of the near-zero gravity in space, there is no loading limit when 
+it comes to the accumulation of uranium and lithium, however, participants should consider depositing 
+regularly at depositories installed on each planet in the solar system due to reports of piracy 
+uranium and lithium are considered hot commodities in space, resulting in civilian spaceships being 
+the target of other life forms. There are 2 ways to self preserve: fight and seize your attacker’s 
+loot or pay the ransom with your own resources or currency. Mining in certain locations wakes up 
+hostile aliens, which force you to fight or flee.
 
 A mission is considered complete when all 8 planets in the solar system are exploited/explored with a 
 minimum deposit of 1 million tons of uranium and 5 million tons of lithium within the standard mission 

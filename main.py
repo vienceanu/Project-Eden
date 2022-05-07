@@ -25,7 +25,7 @@ def intro():
             file_contents = help_file.read()
             print(file_contents)
         elif val =='story' or val =='Story':
-            help_file = open("help.txt")
+            help_file = open("story.txt")
             file_contents = help_file.read()
             print(file_contents)
         # elif val == 'Start' or val == 'start':
