@@ -10,8 +10,7 @@
 
 
 #Query text line
-exit == False
-val = ""
+
 def intro():
     print("Welcome to Project Eden, A space Colony Text Adventure Simulator")
     print("Type Help if you need any help")
