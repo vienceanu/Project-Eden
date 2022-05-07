@@ -1,4 +1,15 @@
+from Stages import *
+from Ship import Ship as Ship
+
+
+#this will be used to store the stage name and required item if any to go
+stages = {"Mercury": "Item1", "Moon": "Item1", 
+          "Uranus": "Item1", "Jupiter": "Item1", 
+          "Venus": "Item1", "Mars": "Item1"
+          , "Pluto": "Item1", "Sun": "Solar Shielding"}
+
 exit = False
+inputs = ()
 def start():
     name = input("What is your name, cadet?\n")
     print(f"Greetings, {name}. Let's throw you in")
