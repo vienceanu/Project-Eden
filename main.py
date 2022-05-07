@@ -13,13 +13,18 @@
 exit == False
 val = ""
 def intro():
-    print("Welcome to Project Eden, A space Colony Text ADventure Simulator")
+    print("Welcome to Project Eden, A space Colony Text Adventure Simulator")
+    print("Type Help if you need any help")
     while True:
-        val = input("Welcome to the main menu!" )
-        print("\n")
+        print("Welcome to the main menu! \n")
+        val = input("Your Answer: ")
         if val == 'Exit' or val == 'exit':
             quit()
         elif val =='help' or val =='Help':
+            help_file = open("help.txt")
+            file_contents = help_file.read()
+            print(file_contents)
+        elif val =='story' or val =='Story':
             help_file = open("help.txt")
             file_contents = help_file.read()
             print(file_contents)
