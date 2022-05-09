@@ -26,5 +26,5 @@ class Pluto:
     Locations = ["Pirate Hideout", "Endles Tundra"]
     
 class Sun:
-    Resources = ["Hydrogen"]
+    Resources = ["Ore-X"]
     Locations = ["Orbit"]
