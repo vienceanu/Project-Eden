@@ -1,0 +1,8 @@
+You see a weird structure on the horizon. 
+It appears to be coming towards you.
+It does not hail any signals as it approaches.
+What do you do?
+
+1 The ship catches up to you, combat ensues. It is an alien ship
+2 You do not stay around and find out, you sucessfully escape
+

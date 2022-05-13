@@ -1,0 +1,6 @@
+You see a weird ship far away.
+It appears to be signaling you to dock as they are friendly.
+What do you do? 
+
+1 The ship catches up to you, combat ensues. It is a pirate ship.
+2 You do not stay around and find out, you sucessfully escape.
