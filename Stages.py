@@ -4,7 +4,7 @@ class Mercury:
 
 class Moon:
     Resources = ["Iron", "Titanium"]
-    Locations = ["Moon's Core", "Crater Tycho", "Mineral Depository 1"]
+    Locations = ["Moon's Core", "Crater Tycho","Pirates", "Mineral Depository 1"]
     
 class Uranus:
     Resources = ["Water"]
@@ -13,7 +13,12 @@ class Uranus:
 class Jupiter:
     Resources = ["Hydrogen", "Helium"]
     Locations = ["Mt. Jupiter", "Alien Hole", "Storm's Eye"]
-    
+
+#FIX THE NEPTUNE RESOURCES
+class Neptune:
+    Resources = ["Hydrogen", "Helium"]
+    Locations = ["Mt. Jupiter", "Alien Hole", "Storm's Eye"]
+
 class Venus:
     Resources = ["Iron"]
     Locations = ["Makeout Point", "Aphrodite's Channel", "Clamshell Cove"]
