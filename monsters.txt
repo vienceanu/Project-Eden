@@ -1,0 +1,10 @@
+#These are the monsters
+# Name | HP | Dmg
+
+Pirate | 20 | 2
+
+Pirate Captain | 50 | 3
+
+Alien | 30 | 5
+
+Alien_Queen | 100 | 10

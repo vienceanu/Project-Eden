@@ -1,0 +1,17 @@
+Mercury | Uranium | Uranium Field's
+
+Moon | Iron, Titanium | Moon's Core, Crater Tycho,Pirates, Mineral Depository 1
+    
+Uranus | Water | Deux Sommets, Dangerous Hole
+    
+Jupiter | Hydrogen, Helium | Mt. Jupiter, Alien Hole, Storm's Eye
+
+Neptune | Hydrogen, Helium | Mt. Jupiter, Alien Hole, Storm's Eye
+
+Venus | Iron | Makeout Point, Aphrodite's Channel, Clamshell Cove
+    
+Mars | Iron, Titanium | Olympus Mons, South Pole, The Great Desert
+    
+Pluto | Pirate Hideout, Endles Tundra
+    
+Sun | Ore-X | Orbit
