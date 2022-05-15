@@ -10,3 +10,5 @@ The temperatures on rocky planets can change instantly and you must be prepared 
 Nightfall is always a danger as the temperature plummets to absolute zero.
 You must act quick to avoid getting caught. Should nightfall catch you unprepared, 
 significant resources will be used by the ships heating systems to keep it viable.
+Rocky planets provide a good mix of resource, fun, adventure and drama
+Are you prepared?
