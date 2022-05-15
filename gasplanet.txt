@@ -1,3 +1,12 @@
 You approach the planet careful, as though the atmosphere parts ways.
 The air is unbearably thick, and unbreathable. You immediately don
-your air system.
+your air system. You know from basic training that some gas planets have acidic
+atmospheres. Nothing could've prepared you for the real thing. 
+As you descend towards the surface, you hear the hull sizzling and creaking. 
+The high temparatures and acidic nature of the atmosphere
+are wreaking havoc on the ship. There isn't much time now,
+you must engage the shields and get cooling online.
+As the systems ramp up, the noise subsides. You are safe inside the ship.
+A sensation of relief washes over you. That was a close call, 
+closer than it should be. Reflecting on training you realize how unprepared 
+you are. You must thinki quick and be adaptable if you are to be successful
