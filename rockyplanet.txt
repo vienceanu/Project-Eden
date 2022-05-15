@@ -1,0 +1,12 @@
+You begin your descent towards the surface of a rocky planet
+You must be prepared to evade smaller peices of rock that are floating in orbit
+A good strategy is to engage shields just in case.
+Rocky planets are resource rich, but mining intensive. They also tend
+to have dense, molten cores that can be exploited. Landing can be a challenge,
+The terrain is extrememly varied and finding a suitable landing point
+is difficult. Landing inside canyons or craters will provide protection against
+the brutal storms and winds present but may be further from mining points. 
+The temperatures on rocky planets can change instantly and you must be prepared to act accordingly.
+Nightfall is always a danger and the temprature plummets to absolute zero, you must act quick
+to avoid getting caught. Should nightfall catch you unprepared, significant resources will be 
+used by the ships heating systems to keep it viable.
