@@ -1,0 +1,58 @@
+We will be using Json to parse through the text file containing all of the properties for the the game. As well for the story description we will generally just print the entire text file. These text files will also represent character description, and main boss battles as well, and print an introduction. 
+
+import json
+
+# some JSON:
+x =  '{ "name":"Pirate", "HP":20, "dmg":"2"}'
+
+# parse x:
+enemy = json.loads(x)
+
+# the result is a Python dictionary:
+for example without proper syntax
+printf( you have encountered a enemy["name"], it is aggresively coming at you! \n how do you proceed?)
+
+THen the damage fromt he weapons would be deducted from the monster dictionary value i.e
+enemy_hp = enemy["HP"] as INT
+new_enemy_hp = enemy_hp - player_dmg   
+enemy["HP":new_enemy_hp]
+
+
+For example:
+The way we would use Json here we would use: x =  '{ "name":"moon", "resources":Iron, Titanium, "Locations":"Moon's Core, Crater Tycho,Pirates, Mineral Depository 1}'
+Mercury | Uranium | Uranium Field's
+
+Moon | Iron, Titanium | Moon's Core, Crater Tycho,Pirates, Mineral Depository 1
+    
+WE will be grouping the planets together with their resources, and anything realted in the previously shown format.
+
+The ship items will have 3 category's weapons, defense, and ship aids. The ship aids would unlock a different feature later on,
+while the defense and attack items would impact the combat roles.
+
+# Weapons
+# Format is Name | Damage | ammo(-1 means infinite as the gun cannot fire at 0 and -1 - 1 decrements)
+# The damage values might also change depending on how testing goes.
+Laser Gun 1 | 2 | -1
+
+#Defense adds certain feature or improves hull
+Ship Hull 1 | + 5 to ship hull
+Ship Hull 2 | + 10 to ship hull
+
+#Ship Aids
+Solar Shielding | Allows the ship to travel close to the sun.
+Trophy System | reduce damage of incoming projectiles by shooting one down.
+
+The merchant will be a class, that will have in his inventory some of the upgrades at random, but obviously you need to follow the upgrade tree, going lvl 1 to lvl 2 and not skipping from lvl 1 to lvl 5
+
+The monsters we have so far, will probably add a few more later on.
+# Name | HP | Dmg
+
+Pirate | 20 | 2
+
+Pirate Captain | 50 | 3
+
+Alien | 30 | 5
+
+Alien_Queen | 100 | 10
+
+We will have additional text files as well, that will contain the help print out and any descriptive elements as you travel through space
