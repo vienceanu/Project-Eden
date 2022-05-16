@@ -7,9 +7,8 @@ Laser Gun 3 | 6 | -1
 Laser Gun 4 | 8 | -1
 Laser Gun 5 | 10 | -1
 Photon Torpedo | 20 | 5
+
 #Defense adds certain feature or improves hull
-Solar Shielding | Allows the ship to travel close to the sun.
-Trophy System | reduce damage of incoming projectiles by shooting one down.
 Ship Hull 1 | + 5 to ship hull
 Ship Hull 2 | + 10 to ship hull
 Ship Hull 3 | + 15 to ship hull
@@ -17,6 +16,8 @@ Ship Hull 4 | + 20 to ship hull
 Ship Hull 5 | + 25 to ship hull
 
 #Ship Aids
+Solar Shielding | Allows the ship to travel close to the sun.
+Trophy System | reduce damage of incoming projectiles by shooting one down.
 Upgraded Drill | Increase Resource mining by two times
 Aquatic Upgrade | Allows the user to circumvent certain gaseous and aquatic environmental factors.
 Upgraded Fuel Tank | Allows the Ship to travel to further reaches
