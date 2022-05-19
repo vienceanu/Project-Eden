@@ -1,4 +1,4 @@
-from Stages import *
+from unused.Stages import *
 from Monster import *
 from Ship import Ship as Ship
 
@@ -21,8 +21,15 @@ def start():
     print(f"Greetings, {name}. Let's throw you in")
     print("barely clinging to life, all of your alarms are going off, no oxygen, no hope")
     print("How do you proceed?\n")
+    print("1). Put on your Oxygen and Repair the Ship\n 2). Abandon all hope and give in")
     val = input("Your Answer: ")
-    
+    if val == 1:
+        print("You put on your seat and begin emergency procedural repairs. You life to figh tanother day.")
+    elif val == 2:
+        print("Game Over")
+        quit()
+    else:
+        print("Command not recognized")
     
     
 def run():
