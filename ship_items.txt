@@ -9,11 +9,11 @@ Laser Gun 5 | 10 | -1
 Photon Torpedo | 20 | 5
 
 #Defense adds certain feature or improves hull
-Ship Hull 1 | + 5 to ship hull
-Ship Hull 2 | + 10 to ship hull
-Ship Hull 3 | + 15 to ship hull
-Ship Hull 4 | + 20 to ship hull
-Ship Hull 5 | + 25 to ship hull
+Ship Hull 1 | x 1.2 to ship hull
+Ship Hull 2 | x 1.4 to ship hull
+Ship Hull 3 | x 1.6 to ship hull
+Ship Hull 4 | x 1.8 to ship hull
+Ship Hull 5 | x 2.0 to ship hull
 
 #Ship Aids
 Solar Shielding | Allows the ship to travel close to the sun.
