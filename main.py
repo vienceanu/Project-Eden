@@ -11,7 +11,7 @@ from game import run
 
 #Query text line
 
-def intro():
+def menu():
     print("Welcome to Project Eden, A space Colony Text Adventure Simulator")
     print("Type Help if you need any help")
     while True:
@@ -33,6 +33,6 @@ def intro():
         else:
             print("Command not recognized")        
 
-intro()
+menu()
 
     

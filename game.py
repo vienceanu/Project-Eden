@@ -16,7 +16,7 @@ monsters = ("Pirate", "Captain", "Alien", "Alien Queen")
 
 exit = False
 inputs = ()
-def start():
+def intro():
     name = input("What is your name, cadet?\n")
     print(f"Greetings, {name}. Let's throw you in")
     print("barely clinging to life, all of your alarms are going off, no oxygen, no hope")
@@ -50,4 +50,4 @@ def start():
     
 def run():
     while exit == False:
-        start()
+        intro()
