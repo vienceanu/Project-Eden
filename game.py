@@ -1,5 +1,5 @@
 from unused.Stages import *
-from Monster import *
+from Combat.Monster import *
 from Ship import Ship as Ship
 
 
@@ -24,7 +24,21 @@ def start():
     print("1). Put on your Oxygen and Repair the Ship\n 2). Abandon all hope and give in")
     val = input("Your Answer: ")
     if val == 1:
-        print("You put on your seat and begin emergency procedural repairs. You life to figh tanother day.")
+        print("You put on your seat and begin emergency procedural repairs. You life to fight another day. \n")
+        print("You hear a beeping noise coming from the cockpit. How do you proceed? \n")
+        print("1). Enter the cockpit \n 2). Wander the ship looking for surroundings")
+        val = input("Your Answer: ")
+        if val == 1:
+            print("You enter the cockpit and are greeted by the ships A.I \n")
+            print(f"Greetings Captain {name}. I am your SHips A.I Cortana. \n")
+            print(f"You were uncosncious for quite some time.  \n")
+            
+            
+        elif val == 2:
+            print("Game Over")
+        else:
+            print("Command not recognized")
+
     elif val == 2:
         print("Game Over")
         quit()
