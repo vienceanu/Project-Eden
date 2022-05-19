@@ -3,6 +3,7 @@ class Ship:
     Hull = 1.2
     HP = 50 * Hull
     Fuel = 100
+    location = "Outer Edge"
     Passengers = []
     #Dock status, if docked 1 else 0
     dockStatus = 0
