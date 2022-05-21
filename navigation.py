@@ -41,7 +41,7 @@ class Sun:
 
 
 #Data 
-location = Ship.location
+
 fuel = Ship.Fuel
 verbs = ["map", "travel", "survey", "mine", "status" ]
 solar_system = {"Sun":0, "Mercury":15, "Venus":23, "Earth":30, "Mars": 36, "Jupiter":45, 
@@ -60,9 +60,11 @@ def return_key(destination):
 
 #checks if we have enough fuel, 
 def fuel_Check(destination):
-    return fuel >= abs(return_key(location) - return_key(destination))
+    return fuel >= abs(return_key(cur_location) - return_key(destination))
 
 def navigation_mode():
+    global cur_location 
+    cur_location = "Pluto"
     print("You drift Motionless through space\n")
     while Ship.dockStatus == 0:
         val = input("Your Answer: ")
@@ -75,16 +77,19 @@ def navigation_mode():
                 print(f"Resources on the Ship are: {Ship.Resources} \n")
                 print(f"Fuel on the Ship is: {Ship.Fuel}\n")
                 print(f"Location of the Ship is: {Ship.location}\n")
-                print(str_to_class(Ship.location).Resources)
             elif val == "survey":
                 print(f"Resources at {Ship.location} are:")
                 print(str_to_class(Ship.location).Resources)
             elif val == "travel":
                 print(f"You are currently at {Ship.location}. Where would you like to travel?")
                 val1 = input("Travel Destination:")
-                if isinstance(abs(return_key(location) - return_key(val1)), int) and fuel_Check(val1) == True:
-                    Ship.Fuel -= (abs(return_key(location) - return_key(val1)))
-                    Ship.location = val1
+                if isinstance(abs(return_key(cur_location) - return_key(val1)), int) and fuel_Check(val1) == True:
+                    print(cur_location)
+                    Ship.Fuel -= (abs(return_key(cur_location) - return_key(val1)))
+                    Ship.location= val1
+                    cur_location = val1
+                    print(cur_location)
+                    
                     print(f"Your new location: {Ship.location}")
                     print(f"Fuel Left: {Ship.Fuel}")
                 # Add a differentiation between fuel and not being able to travel.    
