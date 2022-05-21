@@ -14,7 +14,7 @@ class Jupiter:
     Resources = ["Hydrogen", "Helium"]
     Locations = ["Mt. Jupiter", "Alien Hole", "Storm's Eye"]
 
-#FIX THE NEPTUNE RESOURCES
+# TO DO FIX THE NEPTUNE RESOURCES
 class Neptune:
     Resources = ["Hydrogen", "Helium"]
     Locations = ["Mt. Jupiter", "Alien Hole", "Storm's Eye"]

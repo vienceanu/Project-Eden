@@ -1,0 +1,17 @@
+# Text file to keep various bits of tested code online that helps in implementation. 
+
+solar_system = {"Sun":0, "Mercury":15, "Venus":23, "Earth":30, "Mars": 36, "Jupiter":45, 
+                "Saturn": 53, "Uranus": 68, "Neptune": 79, "Pluto": 120 }
+
+location = "Earth"
+
+def return_key(val):
+    for key, value in solar_system.items():
+        if key==val:
+            return int(value)
+    return('Key Not Found')
+    
+val1 = str(input("Travel Destination:"))
+print(abs(return_key(location) - return_key(val1)))
+
+print(isinstance(abs(return_key(location) - return_key(val1)), int))
