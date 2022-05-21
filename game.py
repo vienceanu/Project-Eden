@@ -1,6 +1,8 @@
 from unused.Stages import *
 from Combat.Monster import *
 from Ship import Ship as Ship
+from navigation import navigation_mode
+
 
 
 #this will be used to store the stage name and required item if any to go
@@ -34,7 +36,7 @@ def intro():
             shipintro_file = open("shipsaiintro.txt")
             file_contents = shipintro_file.read()
             print(file_contents)
-            
+            navigation_mode()
             
         elif val == "2":
             print("Game Over")

@@ -16,33 +16,35 @@ def return_key(destination):
     return('Key Not Found')
 
 #checks if we have enough fuel, 
-def fuel_Check(location, destination):
+def fuel_Check(destination):
     return fuel >= abs(return_key(location) - return_key(destination))
   
-val1 = str(input("Travel Destination:"))
-print(abs(return_key(location) - return_key(val1)))
+
 
 
 def navigation_mode():
+    print("You drift Motionless through space\n")
     while Ship.dockStatus == 0:
-        print("You drift Motionless through space\n")
         val = input("Your Answer: ")
-    if val in verbs:
-        if val == "map":
-            print("Here is the map\n")
-            print()
-            print(f"you are currently at {location}")
-    elif val == "survey":
-        print("Resources at current planet are:")
-        print("Resources")
-    elif val == "travel":
-        print(f"You are currently at {location}. Where would you like to travel?")
-        val1 = input("Travel Destination:")
-        if isinstance(abs(return_key(location) - return_key(val1)), int) and fuel_Check(location, val1) == True:
-            Ship.Fuel -= (abs(return_key(location) - return_key(val1)))
-            Ship.location = "destination"
+        if val in verbs:
+            if val == "map":
+                print("Here is the map\n")
+                print()
+                print(f"you are currently at {Ship.location}")
+            elif val == "survey":
+                print("Resources at current planet are:")
+                print("Resources")
+            elif val == "travel":
+                print(f"You are currently at {Ship.location}. Where would you like to travel?")
+                val1 = input("Travel Destination:")
+                if isinstance(abs(return_key(location) - return_key(val1)), int) and fuel_Check(val1) == True:
+                    Ship.Fuel -= (abs(return_key(location) - return_key(val1)))
+                    Ship.location = val1
+                    print(Ship.location)
+                    print(Ship.Fuel)
+                # Add a differentiation between fuel and not being able to travel.    
+                else:
+                    print("Cannot travel")  
         else:
-            print("Not enough fuel")  
-    else:
-        print("Command not recognized")
+            print("Command not recognized")
     
