@@ -16,18 +16,18 @@ def menu():
     print("Type Help if you need any help")
     while True:
         print("Welcome to the main menu! \n")
-        val = input("Your Answer: ")
-        if val == 'Exit' or val == 'exit':
+        val = input("Your Answer: ").lower()
+        if val == 'exit':
             quit()
-        elif val =='help' or val =='Help':
+        elif val =='help':
             help_file = open("help.txt")
             file_contents = help_file.read()
             print(file_contents)
-        elif val =='story' or val =='Story':
+        elif val =='story':
             help_file = open("story.txt")
             file_contents = help_file.read()
             print(file_contents)
-        elif val == 'Start' or val == 'start':
+        elif val == 'start':
             run()
             pass
         else:
