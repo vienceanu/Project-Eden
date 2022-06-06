@@ -2,18 +2,6 @@ from Stages import *
 from Combat.Monster import *
 from Ship import Ship as Ship
 
-
-#this will be used to store the stage name and required item if any to go
-stages = {"Mercury": "Item1", "Moon": "Item1", 
-          "Uranus": "Item1", "Jupiter": "Item1", 
-          "Venus": "Item1", "Mars": "Item1", "Neptune": "Aquatic Upgrade"
-          , "Pluto": "Item1", "Sun": "Solar Shielding"}
-
-
-
-#These are our monsters
-monsters = ("Pirate", "Captain", "Alien", "Alien Queen")
-
 exit = False
 inputs = ()
 def intro():
