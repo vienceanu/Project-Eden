@@ -1,9 +1,9 @@
 from Stages import *
-<<<<<<< HEAD
-from Combat.Monster import *
-=======
+
+# from Combat.Monster import *
+
 import Monster
->>>>>>> 2ead56feaa43ff503e49403193ea920485d7065f
+
 from Ship import Ship as Ship
 from navigation import navigation_mode
 

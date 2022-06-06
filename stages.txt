@@ -1,4 +1,4 @@
-Mercury | Uranium | Uranium Fields | 
+Mercury | Uranium | Uranium Fields
 
 Moon | Iron, Titanium | Moon's Core, Crater Tycho, Pirates, Mineral Depository 1
     
