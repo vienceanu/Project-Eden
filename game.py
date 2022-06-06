@@ -1,6 +1,12 @@
 from Stages import *
+<<<<<<< HEAD
 from Combat.Monster import *
+=======
+import Monster
+>>>>>>> 2ead56feaa43ff503e49403193ea920485d7065f
 from Ship import Ship as Ship
+from navigation import navigation_mode
+
 
 exit = False
 inputs = ()
@@ -22,7 +28,7 @@ def intro():
             shipintro_file = open("shipsaiintro.txt")
             file_contents = shipintro_file.read()
             print(file_contents)
-            
+            navigation_mode()
             
         elif val == "2":
             print("Game Over")
