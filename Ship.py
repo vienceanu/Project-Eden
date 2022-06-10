@@ -10,6 +10,6 @@ class Ship:
     #Dock status, if docked 1 else 0
     dockStatus = 0
     #For resources need a dictionary
-    Resources = {"Lithium": 0, "Titanium": 0, "Iron": 0, "Uranium": 0, "Ore-X": 0, "Torpedo": 0}
+    Resources = {"uranium": 1, "iron": 0, "titanium": 0, "water": 0, "hydrogen": 0, "helium": 0, "Ore-X": 0, "Torpedo": 0}
     
     
