@@ -6,6 +6,7 @@ class Ship:
     Fuel = 100
     location = "Pluto"
     Passengers = []
+    doge = 100
     #Dock status, if docked 1 else 0
     dockStatus = 0
     #For resources need a dictionary
