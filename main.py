@@ -24,9 +24,9 @@ def menu():
             file_contents = help_file.read()
             print(file_contents)
         elif val =='story':
-            help_file = open("story.txt")
-            file_contents = help_file.read()
-            print(file_contents)
+            story_file = open("story.txt")
+            file_contents1 = story_file.read()
+            print(file_contents1)
         elif val == 'start':
             run()
             pass
