@@ -30,6 +30,8 @@ def menu():
         elif val == 'start':
             run()
             pass
+        elif val == 'continue':
+            pass
         else:
             print("Command not recognized")        
 
