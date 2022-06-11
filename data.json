@@ -1,35 +1,26 @@
 {
-    "ship":[
-        {
-            "Inventory":
-                {
-                    "LG": 2,
-                    "Tor": 10
-                },
-            "Hull": 1.2,
-            "HP": 50,
-            "Fuel": 100,
-            "location":"Pluto",
-            "Passengers":
-                    [
-
-                    ],
-            "Doge": 100,
-            "DockStatus": 0,
-            "Resources":
-                    {
-                        "Uranium": 1,
-                        "Iron": 0,
-                        "Titanium": 0,
-                        "water": 0,
-                        "Hydrogen": 0,
-                        "Helium": 0,
-                        "Ore-X": 0,
-                        "Torpedo": 0
-                    }
-        }
-    ],
-    "money": 10000000000
+    "money": 10000000000,
+    "ship": {
+        "DockStatus": 0,
+        "Doge": 100,
+        "Fuel": 100,
+        "HP": 50,
+        "Hull": 1.2,
+        "Inventory": {
+            "LG": 2,
+            "Tor": 10
+        },
+        "Passengers": [],
+        "Resources": {
+            "helium": 0,
+            "hydrogen": 0,
+            "iron": 0,
+            "ore-X": 0,
+            "titanium": 0,
+            "torpedo": 0,
+            "uranium": 0,
+            "water": 0
+        },
+        "location": "Pluto"
+    }
 }
-
-
