@@ -1,7 +1,8 @@
 from Ship import Ship
 import Monster
 import time 
-import random 
+import random
+import json
 
 
 global Player_Hp 
@@ -21,6 +22,9 @@ enemy_dmg= 2
 global dmgtoe 
 dmgtoe= 0
 
+def write_to_json(data):
+    with open("data.json", "w") as f:
+        json.dump(data,f,indent=4,sort_keys=True)
 
 # def return_key(destination):
 #     for key, value in solar_system.items():
@@ -64,6 +68,11 @@ def combat ():
                 Player_DMG == Player_DMGTor
             else:
                 Player_DMG == Player_DMGLG
+    with open("data.json", "r") as f:
+        data = json.load(f)
+    data['ship']['HP'] = Player_Hp
+    write_to_json(data)
+
                 
                     
                 
