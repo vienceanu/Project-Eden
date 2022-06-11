@@ -26,22 +26,22 @@ dmgtoe = 0
 #             return int(value)
 #     return('Key Not Found')
 
-def combat_intro():
+def combat_intro(Ship):
     print("You encounter an enemy")
     val1 = input("will you fight or flee? \n")
     if val1.lower() == "flee":
         time.sleep(2)
         print("Succesfully Fled")
-        # exit here to game.py? main?
+        # exit here to nav?
     else:
         print("Get ready for combat!")
-        combat()
+        combat(Ship)
 
-def combat ():
+def combat (Ship):
     global enemy_Hp 
-    global Player_Hp
+    Player_Hp = Ship.getHp()
     enemy_Hp = 20
-    print(f"The {ename} has approached the ship. it readies its weapons\n")
+    print(f"The {ename} has approached the ship and is about to attack\n")
     while enemy_Hp > 0 and Player_Hp > 0:
         val2 = input("How do you proceed? (Shoot or Flee)\n")
         if val2.lower() == "shoot":
@@ -55,8 +55,10 @@ def combat ():
         if val2.lower() == "flee":
             time.sleep(2)
             print("Succesfully Fled")
-        # exit here to game.py? main? nav??
-combat_intro()
+        # exit here to nav.py?
+
+s = Ship()
+combat_intro(s)
 #combat()
             
             
