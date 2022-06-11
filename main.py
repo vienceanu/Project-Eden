@@ -1,6 +1,7 @@
 #Main page, this is where we import from other files
 #Import Packages
 from game import run
+from game import ctnGame
 
 
 ##########################################################
@@ -29,6 +30,9 @@ def menu():
             print(file_contents1)
         elif val == 'start':
             run()
+            pass
+        elif val == 'continue':
+            ctnGame()
             pass
         else:
             print("Command not recognized")        

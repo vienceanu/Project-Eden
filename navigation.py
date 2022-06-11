@@ -1,6 +1,6 @@
 from Ship import Ship as Ship
 import sys
-
+import json
 
 class Mercury:
     Resources = ["Uranium"]
@@ -47,6 +47,10 @@ verbs = ["map", "travel", "survey", "mine", "status" ]
 solar_system = {"Sun":0, "Mercury":15, "Venus":23, "Earth":30, "Mars": 36, "Jupiter":45, 
                 "Saturn": 53, "Uranus": 68, "Neptune": 79, "Pluto": 120 }
 
+def write_to_json(data):
+    with open("data.json", "w") as f:
+        json.dump(data,f,indent=4,sort_keys=True)
+
 #String to Class Object
 def str_to_class(str):
     return getattr(sys.modules[__name__], str)
@@ -63,7 +67,9 @@ def fuel_Check(destination):
     return fuel >= abs(return_key(cur_location) - return_key(destination))
 
 def navigation_mode():
-    global cur_location 
+    global cur_location
+    with open("data.json", "r") as f:
+        data = json.load(f)
     cur_location = "Pluto"
     print("You drift Motionless through space\n")
     while Ship.dockStatus == 0:
@@ -88,6 +94,9 @@ def navigation_mode():
                     Ship.Fuel -= (abs(return_key(cur_location) - return_key(val1)))
                     Ship.location= val1
                     cur_location = val1
+                    data['ship']['Fuel'] = Ship.Fuel
+                    data['ship']['location'] = Ship.location
+                    write_to_json(data)
                     print(cur_location)
                     
                     print(f"Your new location: {Ship.location}")

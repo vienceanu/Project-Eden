@@ -45,3 +45,9 @@ def intro():
 def run():
     while exit == False:
         intro()
+        
+def ctnGame():
+    while exit == False:
+        load_game()
+        navigation_mode()
+   
