@@ -1,0 +1,40 @@
+{
+    "ship":[
+        {
+
+
+            "inventory":
+                [
+                    {
+                        "LG": 2,
+                        "Tor": 10
+                    }
+                ],
+            "Hull": 1.2,
+            "HP": 50,
+            "Fuel": 100,
+            "location":"Pluto",
+            "Passengers":
+                    [
+
+                    ],
+            "Doge": 100,
+            "DockStatus": 0,
+            "Resources":
+                    [
+                        {
+                            "Uranium": 1,
+                            "Iron": 0,
+                            "Titanium": 0,
+                            "water": 0,
+                            "Hydrogen": 0,
+                            "Helium": 0,
+                            "Ore-X": 0,
+                            "Torpedo": 0
+                        }
+                    ]
+
+
+        }
+    ]
+}
