@@ -17,7 +17,7 @@ def buy_mode(doge, Resources):
                 if val1 == "y":
                     Ship.doge -= Trader.minerals[val]
                     print(f"Your new wallet balance is: {Ship.doge}\n")
-                    Ship.Resources[val] += 1
+                    Ship.Resources[val] += 1                    
                 elif val1 == "n":
                     print(f"Your new wallet balance is: {Ship.doge}\n")
             else:
@@ -51,4 +51,4 @@ def sell_mode(doge, Resources):
         
     
     
-sell_mode(Ship.doge, Ship.Resources)
+buy_mode(Ship.doge, Ship.Resources)
