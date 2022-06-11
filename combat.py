@@ -8,16 +8,16 @@ global Player_Hp
 Player_Hp = 50
 
 global Player_DMG 
-Player_DMG= 2
+Player_DMG = 2
 
 global ename 
 ename = "Pirate"
 
 global enemy_dmg 
-enemy_dmg= 2
+enemy_dmg = 2
 
 global dmgtoe 
-dmgtoe= 0
+dmgtoe = 0
 
 
 # def return_key(destination):
@@ -28,28 +28,36 @@ dmgtoe= 0
 
 def combat_intro():
     print("You encounter an enemy")
-    val1 = input("do you wish to try and flee?")
-    if val1 == "Flee":
-        time.sleep(3)
-        print("Sucesfully Fled")
+    val1 = input("will you fight or flee? \n")
+    if val1.lower() == "flee":
+        time.sleep(2)
+        print("Succesfully Fled")
+        # exit here to game.py? main?
     else:
         print("Get ready for combat!")
+        combat()
 
 def combat ():
     global enemy_Hp 
+    global Player_Hp
     enemy_Hp = 20
-    print(f" {ename} has approached the ship. it readies its weapons\n")
-    while enemy_Hp > 0:
-        val2 = input("How do you proceeed? (Shoot or Flee)\n")
-        if val2 =="Shoot":
+    print(f"The {ename} has approached the ship. it readies its weapons\n")
+    while enemy_Hp > 0 and Player_Hp > 0:
+        val2 = input("How do you proceed? (Shoot or Flee)\n")
+        if val2.lower() == "shoot":
             dmgtoe = Player_DMG + random.randint(0, 9)
-            print(f"Enemy takes {dmgtoe}")
+            print(f"Enemy takes {dmgtoe} damage,")
             enemy_Hp = enemy_Hp - dmgtoe
-            print(f"enemy health = {enemy_Hp}")
-            print(f"Player takes: {enemy_dmg} and has {Player_Hp} HP left")
+            print(f"and has {enemy_Hp} HP left")
             
+            Player_Hp = Player_Hp - enemy_dmg
+            print(f"Your enemy returns fire. Your ship takes: {enemy_dmg} damage and has {Player_Hp} HP left")   
+        if val2.lower() == "flee":
+            time.sleep(2)
+            print("Succesfully Fled")
+        # exit here to game.py? main? nav??
 combat_intro()
-combat()
+#combat()
             
             
             
