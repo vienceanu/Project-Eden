@@ -1,5 +1,6 @@
 ####################################################
 # Start - Starts the game                          #
+# Continue - Continue where left off               #
 # Help - Lists current commands                    #
 # Story - Lists the story so far in the game       #
 # Exit - Exits game                                #
