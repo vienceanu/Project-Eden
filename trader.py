@@ -1,12 +1,21 @@
 import json
 from Ship import Ship
 from navigation import *
+import random
+from navigation import *
 
 class Trader:
     money = 10000000000
     minerals =  { "uranium": 50, "iron": 10, "titanium": 20, "water": 1, "hydrogen":1, "helium": 3, }
-
-
+    location = "Earth"
+    
+def trader_planet_move(dictionary, n):
+    if n < 0:
+        n += len(dictionary)
+    for i, key in enumerate(dictionary.keys()):
+        if i == n:
+            return key
+        
 def write_to_json(data):
     with open("data.json", "w") as f:
         json.dump(data,f,indent=4,sort_keys=True)

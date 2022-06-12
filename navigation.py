@@ -1,4 +1,5 @@
 from Ship import Ship as Ship
+from Stages import *
 import sys
 import json
 
@@ -107,3 +108,4 @@ def navigation_mode():
         else:
             print("Command not recognized")
     
+navigation_mode()
