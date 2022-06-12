@@ -1,0 +1,7 @@
+Ship Hull Upgrades:
+Level 1 | 3 Iron 2 Titanium
+Level 2 | 5 Iron 4 Titanium
+Level 3 | 7 Iron 6 Titanium
+
+
+
