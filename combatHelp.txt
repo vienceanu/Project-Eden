@@ -1,0 +1,5 @@
+####################################################
+# Shoot - fires current weapon                     #
+# Change weapon - allows you to swap weapons       #
+# Flee - In over your head? Try to escape!         #
+####################################################

@@ -9,8 +9,8 @@ global Player_Hp
 Player_Hp = 50
 
 global Player_DMG 
-Player_DMGLG = Ship.Inventory.LG()
-Player_DMGTor = Ship.Inventory.Tor()
+Player_DMGLG = Ship.Inventory["LG"]
+Player_DMGTor = Ship.Inventory["Tor"]
 Player_DMG = Player_DMGLG
 
 global ename 
@@ -50,7 +50,7 @@ def combat ():
         val2 = input("Shoot | Flee | Change Weapon\n").lower()
         if val2 =="shoot":
             dmgtoe = Player_DMG + random.randint(0, 9)
-            print(f"Enemy takes {dmgtoe}\n")
+            print(f"Enemy takes {dmgtoe} damage. \n")
             enemy_Hp = enemy_Hp - dmgtoe
             print(f"enemy health = {enemy_Hp}\n")
             print(f"Player takes: {enemy_dmg} and has {Player_Hp} HP left\n")
@@ -63,11 +63,17 @@ def combat ():
             else:
                 print(f"You failed to escap\n")
                 print(f"Player takes: {enemy_dmg} and has {Player_Hp} HP left\n")
+        #Interesting bug where the weapon doesn't change right away. 
         elif val2 == "change weapon":
             if Player_DMG == Player_DMGLG:
                 Player_DMG == Player_DMGTor
             else:
                 Player_DMG == Player_DMGLG
+        elif val2 == "help":
+            combat_help_file = open("mainMenuHelp.txt")
+            file_contents = help_file.read()
+            print(file_contents)
+            
     with open("data.json", "r") as f:
         data = json.load(f)
     data['ship']['HP'] = Player_Hp
