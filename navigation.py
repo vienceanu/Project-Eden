@@ -123,5 +123,3 @@ def navigation_mode():
                     print("Cannot travel")  
         else:
             print("Command not recognized")
-
-navigation_mode()

@@ -1,10 +1,5 @@
-from Stages import *
 from Load import *
-# from Combat.Monster import *
-
-import Monster
-
-from Ship import Ship as Ship
+from Ship import *
 from navigation import *
 
 

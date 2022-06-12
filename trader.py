@@ -1,6 +1,6 @@
 import json
 import random
-from Ship import Ship
+from navigation import *
 
 
 
