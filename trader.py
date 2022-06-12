@@ -60,10 +60,16 @@ def sell_mode(doge, Resources):
         else:
             print(f"Incorrect Selection\n")
             
-                
-            
-            
-        
-    
-    
-buy_mode(Ship.doge, Ship.Resources)
+def trader_mode():
+    print(f"Welcome to my shop! I have many fine wares!\n") 
+    val3 = input(f"Are you making a purchase, or looking to sell?\n").lower()
+    if val3 == "help":
+        trader_help_file = open("combatHelp.txt")
+        trader_contents = trader_help_file.read()
+        print(trader_contents)
+    elif val3 == "buy":
+        buy_mode(Ship.doge, Ship.Resources)
+    elif val3 == "sell":
+        sell_mode(Ship.doge, Ship.Resources)
+    else:
+        print(f"")

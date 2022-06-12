@@ -70,8 +70,8 @@ def combat ():
             else:
                 Player_DMG == Player_DMGLG
         elif val2 == "help":
-            combat_help_file = open("mainMenuHelp.txt")
-            file_contents = help_file.read()
+            combat_help_file = open("combatHelp.txt")
+            file_contents = combat_help_file.read()
             print(file_contents)
             
     with open("data.json", "r") as f:
