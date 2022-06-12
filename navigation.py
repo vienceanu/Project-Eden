@@ -104,7 +104,7 @@ def navigation_mode():
             elif val == "travel":
                 print(f"You are currently at {Ship.location}. Where would you like to travel?")
                 val1 = input("Travel Destination:")
-                if isinstance(abs(return_key(cur_location) - return_key(val1)), int) and fuel_Check(val1) == True:
+                if val1 in solar_system and isinstance(abs(return_key(cur_location) - return_key(val1)), int) and fuel_Check(val1) == True:
                     print(cur_location)
                     Ship.Fuel -= (abs(return_key(cur_location) - return_key(val1)))
                     Ship.location= val1
