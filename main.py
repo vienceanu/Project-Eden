@@ -3,15 +3,7 @@
 from game import run
 from game import ctnGame
 
-
-##########################################################
-#Objects
-
-##########################################################
-
-
-#Query text line
-
+# Main menu with simple options. 
 def menu():
     print("Welcome to Project Eden, A space Colony Text Adventure Simulator")
     print("Type Help if you need any help")

@@ -4,21 +4,21 @@ import time
 import random
 import json
 
-
+# Player Variables
 global Player_Hp 
-Player_Hp = 50
-
 global Player_DMG 
+Player_Hp = 50
 Player_DMGLG = Ship.Inventory["LG"]
 Player_DMGTor = Ship.Inventory["Tor"]
 Player_DMG = Player_DMGLG
 
+# Enemy Variables
 global ename 
 ename = "Pirate"
-
 global enemy_dmg 
 enemy_dmg= 2
 
+#Damage to Enemy Variable. 
 global dmgtoe 
 dmgtoe= 0
 

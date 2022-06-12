@@ -2,6 +2,7 @@ import json
 from Ship import Ship
 from trader import Trader
 
+#Load Game function, works by just laoding preivously saves game state. 
 def load_game():
     with open("data.json", "r") as f:
         data = json.load(f)
