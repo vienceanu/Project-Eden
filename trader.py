@@ -1,13 +1,9 @@
 import json
-from Ship import Ship
-from navigation import *
 import random
-from navigation import *
+from Ship import Ship
 
-class Trader:
-    money = 10000000000
-    minerals =  { "uranium": 50, "iron": 10, "titanium": 20, "water": 1, "hydrogen":1, "helium": 3, }
-    location = "Earth"
+
+
     
 def trader_planet_move(dictionary, n):
     if n < 0:
@@ -86,4 +82,3 @@ def trader_mode():
         navigation_mode()
 
      
-trader_mode()

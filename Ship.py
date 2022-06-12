@@ -3,7 +3,8 @@ class Ship:
     Inventory ={"LG": 2, "Tor": 10}
     Hull = 1.2
     HP = 50 * Hull
-    Fuel = 100
+    #Testing for trader
+    Fuel = 100000
     location = "Pluto"
     Passengers = []
     doge = 10000

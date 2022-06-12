@@ -5,7 +5,7 @@ from Load import *
 import Monster
 
 from Ship import Ship as Ship
-from navigation import navigation_mode
+from navigation import *
 
 
 exit = False

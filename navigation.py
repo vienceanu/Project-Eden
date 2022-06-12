@@ -1,7 +1,13 @@
-from Ship import Ship as Ship
-from Stages import *
 import sys
 import json
+from Ship import Ship as Ship
+from Stages import *
+from trader import *
+
+class Trader:
+    money = 10000000000
+    minerals =  { "uranium": 50, "iron": 10, "titanium": 20, "water": 1, "hydrogen":1, "helium": 3, }
+    location = "Earth"
 
 class Mercury:
     Resources = ["Uranium"]
@@ -73,6 +79,9 @@ def navigation_mode():
         data = json.load(f)
     cur_location = "Pluto"
     print("You drift Motionless through space\n")
+    Trader.location == trader_planet_move(solar_system, random.randint(1, 9))
+    if Ship.location == Trader.location:
+        print(f"There is a trader convoy at your current location, maybe they have some wares......\n")
     while Ship.dockStatus == 0:
         val = input("Your Answer: ")
         if val in verbs:
@@ -80,6 +89,10 @@ def navigation_mode():
                 print("Here is the map\n")
                 print(solar_system)
                 print(f"you are currently at {Ship.location}")
+            elif val =='help':
+                navigation_help_file = open("navigationHelp.txt")
+                file_contents1 = navigation_help_file.read()
+                print(file_contents1)
             elif val == "status":
                 print(f"Resources on the Ship are: {Ship.Resources} \n")
                 print(f"Fuel on the Ship is: {Ship.Fuel}\n")
@@ -87,6 +100,8 @@ def navigation_mode():
             elif val == "survey":
                 print(f"Resources at {Ship.location} are:")
                 print(str_to_class(Ship.location).Resources)
+            elif val == "trade" and Ship.location == Trader.location:
+                trader_mode()
             elif val == "travel":
                 print(f"You are currently at {Ship.location}. Where would you like to travel?")
                 val1 = input("Travel Destination:")
@@ -102,10 +117,12 @@ def navigation_mode():
                     
                     print(f"Your new location: {Ship.location}")
                     print(f"Fuel Left: {Ship.Fuel}")
+                    navigation_mode()
+                    
                 # Add a differentiation between fuel and not being able to travel.    
                 else:
                     print("Cannot travel")  
         else:
             print("Command not recognized")
-    
+
 navigation_mode()
