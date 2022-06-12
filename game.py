@@ -1,5 +1,5 @@
 from Stages import *
-
+from game import *
 # from Combat.Monster import *
 
 import Monster
