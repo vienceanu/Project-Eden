@@ -67,7 +67,6 @@ def return_key(destination):
     for key, value in solar_system.items():
         if key==destination:
             return int(value)
-    return('Key Not Found')
 
 #checks if we have enough fuel, 
 def fuel_Check(destination):
