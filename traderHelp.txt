@@ -5,4 +5,5 @@
 ####################################################
 # Buy - allows you to buy from trader              #
 # Sell - allows you to sell to the trader          #
+# Leave - leave trader                             #
 ####################################################

@@ -73,3 +73,8 @@ def trader_mode():
         sell_mode(Ship.doge, Ship.Resources)
     else:
         print(f"")
+    if val3 == 'leave':
+        navigation_mode()
+
+     
+trader_mode()
