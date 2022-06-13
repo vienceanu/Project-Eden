@@ -103,7 +103,7 @@ def navigation_mode():
                 trader_mode()
             elif answer == "travel":
                 print(f"You are currently at {Ship.location}. Where would you like to travel?")
-                nextDestination = input("Travel Destination:")
+                nextDestination = input("Travel Destination:").capitalize()
                 if nextDestination in solar_system and isinstance(abs(return_key(cur_location) - return_key(nextDestination)), int) and fuel_Check(nextDestination) == True:
                     print(cur_location)
                     Ship.Fuel -= (abs(return_key(cur_location) - return_key(nextDestination)))
