@@ -110,7 +110,10 @@ def navigation_mode():
             elif answer == "mine":
                 print(f"Mining.....")
                 time.sleep(3)
-                #Huiran Please Add these minerals to the ship json file. 
+                arr = str_to_class(Ship.location).Resources
+                for i in range(len(arr)):
+                    Ship.Resources[arr[i].lower()] += 2
+                    data['ship']['Resources'][arr[i].lower()] = Ship.Resources[arr[i].lower()]
                 print(f"sucesffuly mined 2 x {str_to_class(Ship.location).Resources}")
             elif answer == "trade" and Ship.location == Trader.location:
                 trader_mode()
