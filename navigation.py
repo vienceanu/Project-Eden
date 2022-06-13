@@ -90,38 +90,38 @@ def navigation_mode():
     if Ship.location == Trader.location:
         print(f"There is a trader convoy at your current location, maybe they have some wares......\n")
     while Ship.dockStatus == 0:
-        val = input("Your Answer: ")
-        if val in verbs:
-            if val == "map":
+        answer = input("Your Answer: ")
+        if answer in verbs:
+            if answer == "map":
                 print("Here is the map\n")
                 print(solar_system)
                 print(f"you are currently at {Ship.location}")
-            elif val =='help':
+            elif answer =='help':
                 navigation_help_file = open("navigationHelp.txt")
                 file_contents1 = navigation_help_file.read()
                 print(file_contents1)
-            elif val == "status":
+            elif answer == "status":
                 print(f"Resources on the Ship are: {Ship.Resources} \n")
                 print(f"Fuel on the Ship is: {Ship.Fuel}\n")
                 print(f"Location of the Ship is: {Ship.location}\n")
-            elif val == "survey":
+            elif answer == "survey":
                 print(f"Resources at {Ship.location} are:")
                 print(str_to_class(Ship.location).Resources)
-            elif val == "mine":
+            elif answer == "mine":
                 print(f"Mining.....")
                 time.sleep(3)
                 print(f"sucesffuly mined 2 x {str_to_class(Ship.location).Resources}")
-            elif val == "trade" and Ship.location == Trader.location:
+            elif answer == "trade" and Ship.location == Trader.location:
                 trader_mode()
-            elif val == "travel":
+            elif answer == "travel":
                 print(f"You are currently at {Ship.location}. Where would you like to travel?")
-                val1 = input("Travel Destination:")
-                if val1 in solar_system and isinstance(abs(return_key(cur_location) - return_key(val1)), int) and fuel_Check(val1) == True:
+                nextDestination = input("Travel Destination:").capitalize()
+                if nextDestination in solar_system and isinstance(abs(return_key(cur_location) - return_key(nextDestination)), int) and fuel_Check(nextDestination) == True:
                     print(cur_location)
-                    print((abs(return_key(cur_location) - return_key(val1))))
-                    Ship.Fuel -= (abs(return_key(cur_location) - return_key(val1)))
-                    Ship.location= val1
-                    cur_location = val1
+                    print((abs(return_key(cur_location) - return_key(answer))))
+                    Ship.Fuel -= (abs(return_key(cur_location) - return_key(answer)))
+                    Ship.location= answer
+                    cur_location = answer
                     data['ship']['Fuel'] = Ship.Fuel
                     data['ship']['location'] = Ship.location
                     write_to_json(data)
