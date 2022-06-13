@@ -5,12 +5,7 @@ from navigation import *
 
 
     
-def trader_planet_move(dictionary, n):
-    if n < 0:
-        n += len(dictionary)
-    for i, key in enumerate(dictionary.keys()):
-        if i == n:
-            return key
+
         
 def write_to_json(data):
     with open("data.json", "w") as f:
