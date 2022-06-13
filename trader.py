@@ -22,22 +22,22 @@ def buy_mode(doge, Resources):
     while True:
         print(f"Welcome to my shop!\n Here are the current listing!\n")
         print(json.dumps(Trader.minerals, indent=4, sort_keys=True))
-        val = input("What are you buying? ").lower()
-        if val in Trader.minerals:
+        answer = input("What are you buying? ").lower()
+        if answer in Trader.minerals:
             if Trader.minerals[val] <= Ship.doge:
-                val1 = input(f"Are you sure you wish to purchase {val}? y/n \n").lower()
-                if val1 == "y":
+                confirm = input(f"Are you sure you wish to purchase {val}? y/n \n").lower()
+                if confirm == "y":
                     Ship.doge -= Trader.minerals[val]
                     data['ship']['Doge'] = Ship.doge
                     print(f"Your new wallet balance is: {Ship.doge}\n")
                     Ship.Resources[val] += 1
                     data['ship']['Resources'][val] = Ship.Resources[val]
                     write_to_json(data)
-                elif val1 == "n":
+                elif confirm == "n":
                     print(f"Your new wallet balance is: {Ship.doge}\n")
             else:
                 print(f"Insufficient funds, why not pick something else?")
-        elif val == "exit":
+        elif answer == "exit":
             navigation_mode()
         else:
             print(f"Incorrect Selection\n")
@@ -48,37 +48,37 @@ def sell_mode(doge, Resources):
     while True:
         print(f"Welcome to my shop!\n What do you wish to sell?\n")
         print(json.dumps(Ship.Resources, indent=4, sort_keys=True))
-        val = input("What are you selling? ").lower()
-        if val in Ship.Resources and Ship.Resources[val] > 0:
-                val1 = input(f"Are you sure you wish to sell {val}? y/n \n").lower()
-                if val1 == "y":
+        item = input("What are you selling? ").lower()
+        if item in Ship.Resources and Ship.Resources[val] > 0:
+                confirm = input(f"Are you sure you wish to sell {val}? y/n \n").lower()
+                if confirm == "y":
                     Ship.doge += Trader.minerals[val]
                     data['ship']['Doge'] = Ship.doge
                     print(f"Your new wallet balance is: {Ship.doge}\n")
                     Ship.Resources[val] -= 1
                     data['ship']['Resources'][val] = Ship.Resources[val]
                     write_to_json(data)
-                elif val1 == "n":
+                elif confirm == "n":
                     print(f"Your new wallet balance is: {Ship.doge}\n")
-        elif val == "exit":
+        elif item == "exit":
             navigation_mode()
         else:
             print(f"Incorrect Selection\n")
             
 def trader_mode():
     print(f"Welcome to my shop! I have many fine wares!\n") 
-    val3 = input(f"Are you making a purchase, or looking to sell?\n").lower()
-    if val3 == "help":
+    decision = input(f"Are you making a purchase, or looking to sell?\n").lower()
+    if decision == "help":
         trader_help_file = open("combatHelp.txt")
         trader_contents = trader_help_file.read()
         print(trader_contents)
-    elif val3 == "buy":
+    elif decision == "buy":
         buy_mode(Ship.doge, Ship.Resources)
-    elif val3 == "sell":
+    elif decision == "sell":
         sell_mode(Ship.doge, Ship.Resources)
     else:
         print(f"")
-    if val3 == 'leave':
+    if decision == 'leave':
         navigation_mode()
 
      
