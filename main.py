@@ -9,21 +9,21 @@ def menu():
     print("Type Help if you need any help")
     while True:
         print("Welcome to the main menu! \n")
-        val = input("Your Answer: ").lower()
-        if val == 'exit':
+        answer = input("Your Answer: ").lower()
+        if answer == 'exit':
             quit()
-        elif val =='help':
+        elif answer =='help':
             help_file = open("mainMenuHelp.txt")
             file_contents = help_file.read()
             print(file_contents)
-        elif val =='story':
+        elif answer =='story':
             story_file = open("story.txt")
             file_contents1 = story_file.read()
             print(file_contents1)
-        elif val == 'start':
+        elif answer == 'start':
             run()
             pass
-        elif val == 'continue':
+        elif answer == 'continue':
             ctnGame()
             pass
         else:
