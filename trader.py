@@ -1,12 +1,8 @@
 import json
 import random
 from navigation import *
+from Ship import *
 
-
-
-    
-
-        
 def write_to_json(data):
     with open("data.json", "w") as f:
         json.dump(data,f,indent=4,sort_keys=True)
@@ -19,14 +15,14 @@ def buy_mode(doge, Resources):
         print(json.dumps(Trader.minerals, indent=4, sort_keys=True))
         answer = input("What are you buying? ").lower()
         if answer in Trader.minerals:
-            if Trader.minerals[val] <= Ship.doge:
-                confirm = input(f"Are you sure you wish to purchase {val}? y/n \n").lower()
+            if Trader.minerals[answer] <= Ship.doge:
+                confirm = input(f"Are you sure you wish to purchase {answer}? y/n \n").lower()
                 if confirm == "y":
-                    Ship.doge -= Trader.minerals[val]
+                    Ship.doge -= Trader.minerals[answer]
                     data['ship']['Doge'] = Ship.doge
                     print(f"Your new wallet balance is: {Ship.doge}\n")
-                    Ship.Resources[val] += 1
-                    data['ship']['Resources'][val] = Ship.Resources[val]
+                    Ship.Resources[answer] += 1
+                    data['ship']['Resources'][answer] = Ship.Resources[answer]
                     write_to_json(data)
                 elif confirm == "n":
                     print(f"Your new wallet balance is: {Ship.doge}\n")

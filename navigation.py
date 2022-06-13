@@ -69,21 +69,13 @@ def return_key(destination):
     for key, value in solar_system.items():
         if key==destination:
             return int(value)
-<<<<<<< Updated upstream
- 
-=======
         
->>>>>>> Stashed changes
 def trader_planet_move(dictionary, n):
     if n < 0:
         n += len(dictionary)
     for i, key in enumerate(dictionary.keys()):
         if i == n:
             return key
-<<<<<<< Updated upstream
-
-=======
->>>>>>> Stashed changes
 #checks if we have enough fuel, 
 def fuel_Check(destination):
     return fuel >= abs(return_key(cur_location) - return_key(destination))
@@ -115,19 +107,11 @@ def navigation_mode():
             elif answer == "survey":
                 print(f"Resources at {Ship.location} are:")
                 print(str_to_class(Ship.location).Resources)
-<<<<<<< Updated upstream
             elif answer == "mine":
                 print(f"Mining.....")
                 time.sleep(3)
                 print(f"sucesffuly mined 2 x {str_to_class(Ship.location).Resources}")
             elif answer == "trade" and Ship.location == Trader.location:
-=======
-            elif val == "mine":
-                print(f"Mining.....")
-                time.sleep(3)
-                print(f"sucesffuly mined 2 x {str_to_class(Ship.location).Resources}")
-            elif val == "trade" and Ship.location == Trader.location:
->>>>>>> Stashed changes
                 trader_mode()
             elif answer == "travel":
                 print(f"You are currently at {Ship.location}. Where would you like to travel?")
@@ -153,12 +137,6 @@ def navigation_mode():
                     print("Cannot travel")  
         else:
             print("Command not recognized")
-<<<<<<< Updated upstream
-
-#navigation mode testing, if oyu launch the game it will go here
-navigation_mode()
-=======
             
 #navigation mode testing, remove to launch game
 navigation_mode()
->>>>>>> Stashed changes
