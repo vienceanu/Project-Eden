@@ -40,14 +40,14 @@ def sell_mode(doge, Resources):
         print(f"Welcome to my shop!\n What do you wish to sell?\n")
         print(json.dumps(Ship.Resources, indent=4, sort_keys=True))
         item = input("What are you selling? ").lower()
-        if item in Ship.Resources and Ship.Resources[val] > 0:
-                confirm = input(f"Are you sure you wish to sell {val}? y/n \n").lower()
+        if item in Ship.Resources and Ship.Resources[item] > 0:
+                confirm = input(f"Are you sure you wish to sell {item}? y/n \n").lower()
                 if confirm == "y":
-                    Ship.doge += Trader.minerals[val]
+                    Ship.doge += Trader.minerals[item]
                     data['ship']['Doge'] = Ship.doge
                     print(f"Your new wallet balance is: {Ship.doge}\n")
-                    Ship.Resources[val] -= 1
-                    data['ship']['Resources'][val] = Ship.Resources[val]
+                    Ship.Resources[item] -= 1
+                    data['ship']['Resources'][item] = Ship.Resources[item]
                     write_to_json(data)
                 elif confirm == "n":
                     print(f"Your new wallet balance is: {Ship.doge}\n")
