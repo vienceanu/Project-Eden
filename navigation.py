@@ -116,25 +116,24 @@ def navigation_mode():
                 trader_mode()
             elif answer == "travel":
                 print(f"You are currently at {Ship.location}. Where would you like to travel?")
-                nextDestination = input("Travel Destination:").capitalize()
-                if nextDestination in solar_system and isinstance(abs(return_key(cur_location) - return_key(nextDestination)), int) and fuel_Check(nextDestination) == True:
+                val1 = input("Travel Destination:").capitalize()
+                if val1 in solar_system and isinstance(abs(return_key(cur_location) - return_key(val1)), int) and fuel_Check(val1) == True:
                     print(cur_location)
-                    print((abs(return_key(cur_location) - return_key(answer))))
-                    Ship.Fuel -= (abs(return_key(cur_location) - return_key(answer)))
-                    Ship.location= answer
-                    cur_location = answer
+                    Ship.Fuel -= (abs(return_key(cur_location) - return_key(val1)))
+                    Ship.location= val1
+                    cur_location = val1
                     data['ship']['Fuel'] = Ship.Fuel
                     data['ship']['location'] = Ship.location
                     write_to_json(data)
                     print(cur_location)
-                    
+
                     print(f"Your new location: {Ship.location}")
                     print(f"Fuel Left: {Ship.Fuel}")
                     navigation_mode()
-                    
-                # Add a differentiation between fuel and not being able to travel.    
+
+                # Add a differentiation between fuel and not being able to travel.
                 else:
-                    print("Cannot travel")  
+                    print("Cannot travel")
         else:
             print("Command not recognized")
             
