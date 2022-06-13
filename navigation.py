@@ -1,5 +1,6 @@
 import sys
 import json
+import time
 from Ship import Ship as Ship
 from Stages import *
 from trader import *
@@ -50,7 +51,7 @@ class Sun:
 #Data 
 
 fuel = Ship.Fuel
-verbs = ["map", "travel", "survey", "mine", "status" ]
+verbs = ["map", "travel", "survey", "mine", "status", "help", "trade", "craft" ]
 solar_system = {"Sun":0, "Mercury":15, "Venus":23, "Earth":30, "Mars": 36, "Jupiter":45, 
                 "Saturn": 53, "Uranus": 68, "Neptune": 79, "Pluto": 120 }
 
@@ -67,6 +68,13 @@ def return_key(destination):
     for key, value in solar_system.items():
         if key==destination:
             return int(value)
+ 
+def trader_planet_move(dictionary, n):
+    if n < 0:
+        n += len(dictionary)
+    for i, key in enumerate(dictionary.keys()):
+        if i == n:
+            return key
 
 #checks if we have enough fuel, 
 def fuel_Check(destination):
@@ -99,6 +107,10 @@ def navigation_mode():
             elif val == "survey":
                 print(f"Resources at {Ship.location} are:")
                 print(str_to_class(Ship.location).Resources)
+            elif val == "mine":
+                print(f"Mining.....")
+                time.sleep(3)
+                print(f"sucesffuly mined 2 x {str_to_class(Ship.location).Resources}")
             elif val == "trade" and Ship.location == Trader.location:
                 trader_mode()
             elif val == "travel":
@@ -106,6 +118,7 @@ def navigation_mode():
                 val1 = input("Travel Destination:")
                 if val1 in solar_system and isinstance(abs(return_key(cur_location) - return_key(val1)), int) and fuel_Check(val1) == True:
                     print(cur_location)
+                    print((abs(return_key(cur_location) - return_key(val1))))
                     Ship.Fuel -= (abs(return_key(cur_location) - return_key(val1)))
                     Ship.location= val1
                     cur_location = val1
@@ -120,6 +133,10 @@ def navigation_mode():
                     
                 # Add a differentiation between fuel and not being able to travel.    
                 else:
+                    
                     print("Cannot travel")  
         else:
             print("Command not recognized")
+
+#navigation mode testing, if oyu launch the game it will go here
+navigation_mode()
