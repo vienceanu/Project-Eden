@@ -134,7 +134,6 @@ def navigation_mode():
                     
                 # Add a differentiation between fuel and not being able to travel.    
                 else:
-                    
                     print("Cannot travel")  
         else:
             print("Command not recognized")
