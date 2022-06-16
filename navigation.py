@@ -65,7 +65,7 @@ def trader_mode():
     print(f"Welcome to my shop! I have many fine wares!\n") 
     decision = input(f"Are you making a purchase, or looking to sell?\n").lower()
     if decision == "help":
-        trader_help_file = open("combatHelp.txt")
+        trader_help_file = open("traderHelp.txt")
         trader_contents = trader_help_file.read()
         print(trader_contents)
     elif decision == "buy":
@@ -173,4 +173,4 @@ def navigation_mode():
             print("Command not recognized")
             
 #navigation mode testing, remove to launch game
-navigation_mode()
+#navigation_mode()
