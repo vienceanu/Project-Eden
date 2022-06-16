@@ -1,12 +1,13 @@
 import json
 import random
-from navigation import Trader 
-from navigation import navigation_mode 
+from navigation import *
 from Ship import *
 
 def write_to_json(data):
     with open("data.json", "w") as f:
         json.dump(data,f,indent=4,sort_keys=True)
+        
+
 
 def buy_mode(doge, Resources):
     with open("data.json", "r") as f:
@@ -57,20 +58,5 @@ def sell_mode(doge, Resources):
         else:
             print(f"Incorrect Selection\n")
             
-def trader_mode():
-    print(f"Welcome to my shop! I have many fine wares!\n") 
-    decision = input(f"Are you making a purchase, or looking to sell?\n").lower()
-    if decision == "help":
-        trader_help_file = open("combatHelp.txt")
-        trader_contents = trader_help_file.read()
-        print(trader_contents)
-    elif decision == "buy":
-        buy_mode(Ship.doge, Ship.Resources)
-    elif decision == "sell":
-        sell_mode(Ship.doge, Ship.Resources)
-    else:
-        print(f"")
-    if decision == 'leave':
-        navigation_mode()
 
      

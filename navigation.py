@@ -4,7 +4,7 @@ import json
 import time
 from Ship import Ship as Ship
 from Stages import *
-from trader import *
+import trader
 
 class Trader:
     money = 10000000000
@@ -59,6 +59,22 @@ solar_system = {"Sun":0, "Mercury":15, "Venus":23, "Earth":30, "Mars": 36, "Jupi
 def write_to_json(data):
     with open("data.json", "w") as f:
         json.dump(data,f,indent=4,sort_keys=True)
+
+def trader_mode():
+    print(f"Welcome to my shop! I have many fine wares!\n") 
+    decision = input(f"Are you making a purchase, or looking to sell?\n").lower()
+    if decision == "help":
+        trader_help_file = open("combatHelp.txt")
+        trader_contents = trader_help_file.read()
+        print(trader_contents)
+    elif decision == "buy":
+        trader.buy_mode(Ship.doge, Ship.Resources)
+    elif decision == "sell":
+        trader.sell_mode(Ship.doge, Ship.Resources)
+    else:
+        print(f"")
+    if decision == 'leave':
+        navigation_mode()
 
 #String to Class Object
 def str_to_class(str):
