@@ -3,6 +3,7 @@ import Monster
 import time 
 import random
 import json
+import navigation
 
 # Player Variables
 global Player_Hp 
@@ -35,9 +36,9 @@ def write_to_json(data):
 def combat_intro():
     print("You encounter an enemy")
     answer = input("do you wish to try and flee?")
-    if answer == "Flee":
+    if (answer.lower() == "flee") or (answer == "yes"):
         time.sleep(3)
-        print("Sucesfully Fled")
+        print("Successfully Fled")
     else:
         print("Get ready for combat!\n")
 
@@ -52,23 +53,29 @@ def combat ():
             dmgtoe = Player_DMG + random.randint(0, 9)
             print(f"Enemy takes {dmgtoe} damage. \n")
             enemy_Hp = enemy_Hp - dmgtoe
+            if enemy_Hp < 0:
+                print(f"you have defeated the {ename}")
+                # enemy drop resource
+                navigation_mode()
             print(f"enemy health = {enemy_Hp}\n")
-            print(f"Player takes: {enemy_dmg} and has {Player_Hp} HP left\n")
+            print(f"Player takes: {enemy_dmg}damage and has {Player_Hp} HP left\n")
         elif action == "flee":
             player_Flee = random.randint(1,100)
             enemy_Flee = random.randint(1,100)
             if player_Flee > enemy_Flee:
-                print(f"You have Successfully escaped {ename}\n")
+                print(f"You have successfully escaped {ename}\n")
                 enemy_Hp = 0
             else:
-                print(f"You failed to escap\n")
+                print(f"You failed to escape\n")
                 print(f"Player takes: {enemy_dmg} and has {Player_Hp} HP left\n")
         #Interesting bug where the weapon doesn't change right away. 
         elif action == "change weapon":
             if Player_DMG == Player_DMGLG:
                 Player_DMG == Player_DMGTor
+                print("Switched to Torpedo\n")
             else:
                 Player_DMG == Player_DMGLG
+                print("Switched to Laser Gun\n")
         elif action == "help":
             combat_help_file = open("combatHelp.txt")
             file_contents = combat_help_file.read()
