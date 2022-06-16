@@ -3,7 +3,7 @@ import Monster
 import time 
 import random
 import json
-import navigation
+from navigation import *
 
 # Player Variables
 global Player_Hp 
@@ -34,9 +34,9 @@ def write_to_json(data):
 #     return('Key Not Found')
 
 def combat_intro():
-    print("You encounter an enemy")
-    answer = input("do you wish to try and flee?")
-    if (answer.lower() == "flee") or (answer == "yes"):
+    print("You encounter an enemy!")
+    answer = input("Do you wish to try and flee?\n").lower()
+    if (answer == "flee") or (answer == "yes"):
         time.sleep(3)
         print("Successfully Fled")
     else:
@@ -45,20 +45,25 @@ def combat_intro():
 def combat ():
     global enemy_Hp 
     enemy_Hp = 20
-    print(f" {ename} has approached the ship. it readies its weapons\n")
+    print(f"{ename} has approached the ship. it readies its weapons\n")
     print("How do you proceeed? \n")
     while enemy_Hp > 0:
         action = input("Shoot | Flee | Change Weapon\n").lower()
-        if action =="shoot":
+        if action == "shoot":
             dmgtoe = Player_DMG + random.randint(0, 9)
-            print(f"Enemy takes {dmgtoe} damage. \n")
+            print(f"you inflict {dmgtoe} damage, and your enemy has {enemy_Hp left.} \n")
             enemy_Hp = enemy_Hp - dmgtoe
-            if enemy_Hp < 0:
-                print(f"you have defeated the {ename}")
-                # enemy drop resource
+            if enemy_Hp <= 0:
+                prize = random.choice(list(Ship.Resources))
+                prize_amt = random.randint(1,3)
+                Ship.Resources[prize] += prize_amt
+                print(f"You have defeated the {ename}, and took {prize_amt} {prize} they dropped\n")
                 navigation_mode()
-            print(f"enemy health = {enemy_Hp}\n")
-            print(f"Player takes: {enemy_dmg}damage and has {Player_Hp} HP left\n")
+            Player_Hp = Player_Hp - enemy_dmg
+            if Player_Hp <= 0:
+                print(f"Your ship has been destroyed! Game over\n")
+                exit()
+            print(f"You take {enemy_dmg}damage and has {Player_Hp} HP left\n")
         elif action == "flee":
             player_Flee = random.randint(1,100)
             enemy_Flee = random.randint(1,100)
