@@ -2,6 +2,7 @@ import sys
 import time
 import json
 import time
+import random
 from Ship import Ship as Ship
 from Stages import *
 import trader
@@ -9,7 +10,7 @@ import trader
 class Trader:
     money = 10000000000
     minerals =  { "uranium": 50, "iron": 10, "titanium": 20, "water": 1, "hydrogen":1, "helium": 3, }
-    location = "Earth"
+    location = ""
 
 class Mercury:
     Resources = ["Uranium"]
@@ -106,7 +107,6 @@ def navigation_mode():
         data = json.load(f)
     cur_location = "Pluto"
     print("You drift Motionless through space\n")
-    Trader.location == trader_planet_move(solar_system, 8)
     print(Trader.location)
     if Ship.location == Trader.location:
         print(f"There is a trader convoy at your current location, maybe they have some wares......\n")
@@ -138,6 +138,9 @@ def navigation_mode():
                 print(f"sucesffuly mined 2 x {str_to_class(Ship.location).Resources}")
             elif answer == "trade" and Ship.location == Trader.location:
                 trader_mode()
+            elif answer == "exit" :
+                data['ship']['location'] == ""
+                quit()
             elif answer == "travel":
                 print(f"You are currently at {Ship.location}. Where would you like to travel?")
                 val1 = input("Travel Destination:").capitalize()
@@ -153,10 +156,15 @@ def navigation_mode():
 
                     print(f"Your new location: {Ship.location}")
                     print(f"Fuel Left: {Ship.Fuel}")
+                    print(f"initialized trader location: {Trader.location}")
+                    Trader.location == ""
+                    print(f"cleared trader location : {Trader.location}")
+                    
+                    Trader.location == trader_planet_move(solar_system, random.randint(1,9))
+                    print(f"new trader location: {Trader.location}")
+                    
                     navigation_mode()
-            elif answer == "exit" :
-                data['ship']['location'] == ""
-                quit()
+
 
                 # Add a differentiation between fuel and not being able to travel.
                 else:
