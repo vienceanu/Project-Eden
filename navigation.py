@@ -154,6 +154,9 @@ def navigation_mode():
                     print(f"Your new location: {Ship.location}")
                     print(f"Fuel Left: {Ship.Fuel}")
                     navigation_mode()
+            elif answer == "exit" :
+                data['ship']['location'] == ""
+                quit()
 
                 # Add a differentiation between fuel and not being able to travel.
                 else:
