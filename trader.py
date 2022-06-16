@@ -1,6 +1,7 @@
 import json
 import random
-from navigation import *
+from navigation import Trader 
+from navigation import navigation_mode 
 from Ship import *
 
 def write_to_json(data):

@@ -80,13 +80,18 @@ def trader_planet_move(dictionary, n):
 def fuel_Check(destination):
     return fuel >= abs(return_key(cur_location) - return_key(destination))
 
+# #testing trader
+# trader2 = trader_planet_move(solar_system)
+
+
 def navigation_mode():
     global cur_location
     with open("data.json", "r") as f:
         data = json.load(f)
     cur_location = "Pluto"
     print("You drift Motionless through space\n")
-    Trader.location == trader_planet_move(solar_system, random.randint(1, 9))
+    Trader.location == trader_planet_move(solar_system, 8)
+    print(Trader.location)
     if Ship.location == Trader.location:
         print(f"There is a trader convoy at your current location, maybe they have some wares......\n")
     while Ship.dockStatus == 0:
@@ -141,3 +146,4 @@ def navigation_mode():
             print("Command not recognized")
             
 #navigation mode testing, remove to launch game
+navigation_mode()
