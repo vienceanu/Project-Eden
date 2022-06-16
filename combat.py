@@ -47,7 +47,7 @@ def combat ():
         action = input("Shoot | Flee | Change Weapon\n").lower()
         if action == "shoot":
             dmgtoe = Player_DMG + random.randint(0, 9)
-            print(f"you inflict {dmgtoe} damage, and your enemy has {enemy_Hp left.} \n")
+            print(f"you inflict {dmgtoe} damage, and your enemy has {enemy_Hp} left. \n")
             enemy_Hp = enemy_Hp - dmgtoe
             if enemy_Hp <= 0:
                 prize = random.choice(list(Ship.Resources))
@@ -59,7 +59,6 @@ def combat ():
             if Player_Hp <= 0:
                 print(f"Your ship has been destroyed! Game over\n")
                 exit()
-            print(f"You take {enemy_dmg}damage and has {Player_Hp} HP left\n")
         elif action == "flee":
             player_Flee = random.randint(1,100)
             enemy_Flee = random.randint(1,100)
@@ -68,7 +67,6 @@ def combat ():
                 enemy_Hp = 0
             else:
                 print(f"You failed to escape\n")
-                print(f"Player takes: {enemy_dmg} and has {Player_Hp} HP left\n")
         #Interesting bug where the weapon doesn't change right away. 
         elif action == "change weapon":
             if Player_DMG == Player_DMGLG:
@@ -82,18 +80,12 @@ def combat ():
             file_contents = combat_help_file.read()
             print(file_contents)
             
-    with open("data.json", "r") as f:
-        data = json.load(f)
-    data['ship']['HP'] = Player_Hp
-    write_to_json(data)
+    # with open("data.json", "r") as f:
+    #     data = json.load(f)
+    # data['ship']['HP'] = Player_Hp
+    # write_to_json(data)
 
-                
-                    
-                
-            
-                
-                
-            
+    
 combat_intro()
 combat()
             
