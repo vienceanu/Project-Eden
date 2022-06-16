@@ -1,14 +1,11 @@
-rooms = {'Landing Zone': {'name': 'Landing Zone', 'South': 'Moon Core', 'North': 'Mineral Deposit 1', },
-     'Moon Core': {'name': 'Moon Core', 'East': 'Crater Tycho', 'North': 'Landing Zone', 'South': 'Mineral DEpository', 'West': 'Crater Tycho'},
-     'Cellar': {'name': 'Cellar', 'West': 'Bedroom'},
-     'Library': {'name': 'Library', 'East': 'Landing Zone'},
-     'Kitchen': {'name': 'Kitchen', 'West': 'Landing Zone', 'North': 'Dining Room'},
-     'Dining Room': {'name': 'Dining Room', 'South': 'Kitchen'},
-     'Dungeon': {'name': 'Dungeon', 'South': 'Landing Zone', 'East': 'Gallery'},
-     'Gallery': {'name': 'Gallery', 'West': 'Dungeon'},
+locations = {'Landing Zone': {'name': 'Landing Zone', 'South': 'Moon Core', 'North': 'Mineral Deposit 1', },
+     'Moon Core': {'name': 'Moon Core', 'East': 'Crater Tycho', 'North': 'Landing Zone', 'South': 'Mineral Depository', 'West': 'Crater Tycho'},
+     'Crater Tycho': {'name': 'Crater Tycho', 'North': 'Pirate Base', 'West':'Moon Core','East':'Moon Core','South':'Pirate Base' },
+     'Pirate Base': {'name': 'Pirate Base', 'North': 'Crater Tycho', 'West':'Mineral Deposit 1','East':'Mineral Deposit 1','South':'Crater Tycho' },
+     'Mineral Deposit 1': {'name': 'Mineral Deposit 1', 'North': 'Moon Core', 'West':'Pirate Base','East':'Pirate Base','South':'Landing Zone' }
      }
 directions = ['North', 'South', 'East', 'West']
-current_room = rooms['Landing Zone']
+current_room = locations['Landing Zone']
 
 # game loop
 while True:
@@ -21,7 +18,7 @@ while True:
   # movement
     if command in directions:
         if command in current_room:
-            current_room = rooms[current_room[command]]
+            current_room = locations[current_room[command]]
         else:
         # bad movement
             print("You can't go that way.")
