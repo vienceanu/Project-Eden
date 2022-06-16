@@ -19,10 +19,6 @@ ename = "Pirate"
 global enemy_dmg 
 enemy_dmg= 2
 
-#Damage to Enemy Variable. 
-global dmgtoe 
-dmgtoe= 0
-
 def write_to_json(data):
     with open("data.json", "w") as f:
         json.dump(data,f,indent=4,sort_keys=True)
@@ -45,7 +41,7 @@ def combat_intro():
 def combat ():
     global enemy_Hp 
     enemy_Hp = 20
-    print(f"{ename} has approached the ship. it readies its weapons\n")
+    print(f"{ename} is approaching the your ship, ready to attack\n")
     print("How do you proceeed? \n")
     while enemy_Hp > 0:
         action = input("Shoot | Flee | Change Weapon\n").lower()
