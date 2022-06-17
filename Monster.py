@@ -1,19 +1,11 @@
-#These are the monsters
 
+class Monster():
+    def __init__(self,Hp,Dmg,name):
+        self.Hp = Hp 
+        self.Dmg = Dmg
+        self.name = name
 
-class Pirate:
-    Hp = 20
-    DMG = 2
-    
-class Pirate_Captain:
-    Hp = 50
-    Dmg = 3
-    
-class Alien:
-    Hp = 30
-    Dmg = 5
-
-class Alien_Queen:
-    Hp = 100
-    Dmg = 10
-    
+Alien = Monster(20,5,"an Alien")
+AlienQueen  = Monster(80,11,"The Alien Queen")
+Pirate = Monster(15,3,"a Pirate")
+PirateKing = Monster(60,6,"The Pirate King")
