@@ -17,6 +17,11 @@ class Trader:
     minerals =  { "uranium": 50, "iron": 10, "titanium": 20, "water": 1, "hydrogen":1, "helium": 3, }
     location = "pluto"
 
+class Trader1:
+    money = 10000000000
+    minerals =  { "uranium": 50, "iron": 10, "titanium": 20, "water": 1, "hydrogen":1, "helium": 3, }
+    location = "moon"
+
 class Mercury:
     Resources = ["Uranium"]
     Locations = ["Uranium Field's"]
@@ -172,7 +177,7 @@ def navigation_mode():
     #############################
     print(Trader.location)
     ################################
-    if Ship.location == Trader.location:
+    if Ship.location == Trader.location or Trader1.location:
         print(f"There is a trader convoy at your current location, maybe they have some wares......\n")
     while Ship.dockStatus == 0:
         answer = input("Your Answer: ")
@@ -220,6 +225,8 @@ def navigation_mode():
                     data['ship']['Resources'][arr[i].lower()] = Ship.Resources[arr[i].lower()]
                 print(f"sucesffuly mined 2 x {str_to_class(Ship.location).Resources}")
             elif answer == "trade" and Ship.location == Trader.location:
+                trader_mode()
+            elif answer == "trade" and Ship.location == Trader1.location:
                 trader_mode()
             elif answer == "exit" :
                 data['ship']['location'] == ""
