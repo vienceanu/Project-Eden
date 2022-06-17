@@ -10,22 +10,22 @@ def descend():
 
   # game loop
   while True:
-      # display current location
-      print()
-      print('You are in the {}.'.format(current_room['name']))
+    # display current location
+    print()
+    print('You are in the {}.'.format(current_room['name']))
 
     # get user input
-      command = input('\nWhat direction do you want to go? ').upper()
+    command = input('\nWhat direction do you want to go? ').upper()
     # movement
-      if command in directions:
-          if command in current_room:
-              current_room = locations[current_room[command]]
-          else:
-          # bad movement
-              print("Desolate emptiness, best not head that way....")
-    # Exit game
-      elif command.lower() in ('q', 'quit'):
-          break
-    # bad command
+    if command in directions:
+      if command in current_room:
+        current_room = locations[current_room[command]]
       else:
-          print("Invalid Direction")
+      # bad movement
+        print("Desolate emptiness, best not head that way....")
+    # Exit game
+    elif command.lower() in ('leave'):
+      return
+    # bad command
+    else:
+      print("Invalid Direction")

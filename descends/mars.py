@@ -24,8 +24,8 @@ def descend():
           # bad movement
               print("Desolate emptiness, best not head that way....")
     # Exit game
-      elif command.lower() in ('q', 'quit'):
-          break
+      elif command.lower() in ('leave'):
+          return
     # bad command
       else:
           print("Invalid Direction")
