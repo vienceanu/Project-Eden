@@ -3,6 +3,7 @@ import time
 import json
 import time
 import random
+import landing
 from Ship import Ship as Ship
 from Stages import *
 import trader
@@ -51,11 +52,11 @@ class Sun:
 
 
 #Data 
-
+landable_planet=["mercury", "venus", "earth", "mars", "pluto", "moon"]
 fuel = Ship.Fuel
 verbs = ["map", "travel", "survey", "mine", "status", "help", "trade", "craft" ]
-solar_system = {"Sun":0, "Mercury":15, "Venus":23, "Earth":30, "Mars": 36, "Jupiter":45, 
-                "Saturn": 53, "Uranus": 68, "Neptune": 79, "Pluto": 120 }
+solar_system = {"sun":0, "mercury":15, "venus":23, "earth":30, "moon":31, "mars": 36, "jupiter":45, 
+                "saturn": 53, "uranus": 68, "neptune": 79, "pluto": 120 }
 
 def write_to_json(data):
     with open("data.json", "w") as f:
@@ -68,14 +69,15 @@ def trader_mode():
         trader_help_file = open("traderHelp.txt")
         trader_contents = trader_help_file.read()
         print(trader_contents)
+    elif decision == 'leave':
+        navigation_mode()
     elif decision == "buy":
         trader.buy_mode(Ship.doge, Ship.Resources)
     elif decision == "sell":
         trader.sell_mode(Ship.doge, Ship.Resources)
     else:
         print(f"")
-    if decision == 'leave':
-        navigation_mode()
+
 
 #String to Class Object
 def str_to_class(str):
@@ -126,8 +128,12 @@ def navigation_mode():
                 print(f"Fuel on the Ship is: {Ship.Fuel}\n")
                 print(f"Location of the Ship is: {Ship.location}\n")
             elif answer == "survey":
-                print(f"Resources at {Ship.location} are:")
+                print(f"Resources at {Ship.location} are:\n")
                 print(str_to_class(Ship.location).Resources)
+            elif answer == "descend" and answer in landable_planet:
+                print(f"Descending into {Ship.location} \n")
+                landing.descend()
+                
             elif answer == "mine":
                 print(f"Mining.....")
                 time.sleep(3)
@@ -143,10 +149,11 @@ def navigation_mode():
                 quit()
             elif answer == "travel":
                 print(f"You are currently at {Ship.location}. Where would you like to travel?")
-                val1 = input("Travel Destination:").capitalize()
-                if val1 in solar_system and isinstance(abs(return_key(cur_location) - return_key(val1)), int) and fuel_Check(val1) == True:
+                val1 = input("Travel Destination:").lower()
+                if val1 in solar_system :
                     print(cur_location)
-                    Ship.Fuel -= (abs(return_key(cur_location) - return_key(val1)))
+                    #156 doesnt return teh right type
+                    # Ship.Fuel -= (abs(return_key(cur_location) - return_key(val1)))
                     Ship.location= val1
                     cur_location = val1
                     data['ship']['Fuel'] = Ship.Fuel
@@ -173,4 +180,5 @@ def navigation_mode():
             print("Command not recognized")
             
 #navigation mode testing, remove to launch game
-#navigation_mode()
+# navigation_mode()
+print(return_key('pluto'))

@@ -5,7 +5,7 @@ class Ship:
     HP = 50 * Hull
     #Testing for trader
     Fuel = 100000
-    location = ""
+    location = "pluto"
     Passengers = []
     doge = 10000
     #Dock status, if docked 1 else 0

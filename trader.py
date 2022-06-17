@@ -1,6 +1,6 @@
 import json
 import random
-from navigation import *
+import navigation
 from Ship import *
 
 def write_to_json(data):
@@ -30,8 +30,8 @@ def buy_mode(doge, Resources):
                     print(f"Your new wallet balance is: {Ship.doge}\n")
             else:
                 print(f"Insufficient funds, why not pick something else?")
-        elif answer == "exit":
-            navigation_mode()
+        elif answer == "back":
+            navigation.trader_mode()
         else:
             print(f"Incorrect Selection\n")
 
@@ -41,20 +41,20 @@ def sell_mode(doge, Resources):
     while True:
         print(f"Welcome to my shop!\n What do you wish to sell?\n")
         print(json.dumps(Ship.Resources, indent=4, sort_keys=True))
-        item = input("What are you selling? ").lower()
-        if item in Ship.Resources and Ship.Resources[item] > 0:
-                confirm = input(f"Are you sure you wish to sell {item}? y/n \n").lower()
+        answer = input("What are you selling? ").lower()
+        if answer in Ship.Resources and Ship.Resources[answer] > 0:
+                confirm = input(f"Are you sure you wish to sell {answer}? y/n \n").lower()
                 if confirm == "y":
-                    Ship.doge += Trader.minerals[item]
+                    Ship.doge += Trader.minerals[answer]
                     data['ship']['Doge'] = Ship.doge
                     print(f"Your new wallet balance is: {Ship.doge}\n")
-                    Ship.Resources[item] -= 1
-                    data['ship']['Resources'][item] = Ship.Resources[item]
+                    Ship.Resources[answer] -= 1
+                    data['ship']['Resources'][answer] = Ship.Resources[answer]
                     write_to_json(data)
                 elif confirm == "n":
                     print(f"Your new wallet balance is: {Ship.doge}\n")
-        elif item == "exit":
-            navigation_mode()
+        elif answer == "back":
+            navigation.trader_mode()
         else:
             print(f"Incorrect Selection\n")
             
