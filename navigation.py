@@ -212,7 +212,7 @@ def upgrading_mode():
                     print("You do not have enough resources to upgrade.")
                 break
             elif answer == "n":
-                print("Upgradation cancelled.")
+                print("Upgrading cancelled.")
             else:
                 print("Command not recognized")
         elif upgrade == "hull":
@@ -355,4 +355,4 @@ def navigation_mode():
             print("Command not recognized")
             
 #navigation mode testing, remove to launch game
-#navigation_mode()
+navigation_mode()
