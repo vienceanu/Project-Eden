@@ -34,6 +34,8 @@ def combat_intro():
     if (answer == "flee") or (answer == "yes"):
         time.sleep(3)
         print("Successfully Fled")
+        navigation_mode()
+        quit()
     else:
         print("Get ready for combat!\n")
 
@@ -41,13 +43,13 @@ def combat ():
     global enemy_Hp 
     global Player_Hp
     enemy_Hp = 20
-    print(f"{ename} is approaching the your ship, ready to attack\n")
-    print("How do you proceeed? \n")
+    print(f"{ename} is approaching your ship, ready to attack")
+    print("How do you proceeed? ")
     while enemy_Hp > 0:
         action = input("Shoot | Flee | Change Weapon\n").lower()
         if action == "shoot":
             dmgtoe = Player_DMG + random.randint(0, 9)
-            print(f"you inflict {dmgtoe} damage, and your enemy has {enemy_Hp} left. \n")
+            print(f"you inflict {dmgtoe} damage, and your enemy has {enemy_Hp} HP left. \n")
             enemy_Hp = enemy_Hp - dmgtoe
             if enemy_Hp <= 0:
                 prize = random.choice(list(Ship.Resources))
@@ -59,6 +61,7 @@ def combat ():
             if Player_Hp <= 0:
                 print(f"Your ship has been destroyed! Game over\n")
                 exit()
+            print(f"Your ship takes {dmgtoe} damage, and has {Player_Hp} HP left. \n")
         elif action == "flee":
             player_Flee = random.randint(1,100)
             enemy_Flee = random.randint(1,100)

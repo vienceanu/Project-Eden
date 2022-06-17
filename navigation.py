@@ -261,4 +261,4 @@ def navigation_mode():
             print("Command not recognized")
             
 #navigation mode testing, remove to launch game
-navigation_mode()
+#navigation_mode()
