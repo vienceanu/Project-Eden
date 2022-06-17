@@ -2,25 +2,27 @@
     "money": 10000000000,
     "ship": {
         "DockStatus": 0,
-        "Doge": 100,
-        "Fuel": 99911,
+        "Doge": 9999,
+        "Fuel": 99850,
         "HP": 50,
         "Hull": 1.2,
+        "HullLevel": 1,
         "Inventory": {
             "LG": 2,
             "Tor": 10
         },
+        "LGLevel": 1,
         "Passengers": [],
         "Resources": {
             "helium": 0,
             "hydrogen": 0,
             "iron": 0,
-            "ore-X": 0,
+            "ore-x": 0,
             "titanium": 0,
             "torpedo": 0,
             "uranium": 0,
             "water": 0
         },
-        "location": "moon"
+        "location": "pluto"
     }
 }
