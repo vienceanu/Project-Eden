@@ -1,6 +1,8 @@
 class Ship:
     #weapons
     Inventory ={"LG": 2, "Tor": 10}
+    LGLevel = 1
+    HullLevel = 1
     Hull = 1.2
     HP = 50 * Hull
     #Testing for trader
@@ -11,6 +13,6 @@ class Ship:
     #Dock status, if docked 1 else 0
     dockStatus = 0
     #For resources need a dictionary
-    Resources = {"uranium": 1, "iron": 0, "titanium": 0, "water": 0, "hydrogen": 0, "helium": 0, "ore-x": 0, "torpedo": 0}
+    Resources = {"uranium": 0, "iron": 0, "titanium": 0, "water": 0, "hydrogen": 0, "helium": 0, "ore-x": 0, "torpedo": 0}
     
     
