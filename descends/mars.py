@@ -1,8 +1,7 @@
-locations = {'Landing Zone': {'name': 'Landing Zone', 'S': 'Moon Core', 'N': 'Mineral Deposit 1', },
-     'Moon Core': {'name': 'Moon Core', 'E': 'Crater Tycho', 'N': 'Landing Zone', 'S': 'Mineral Deposi 1', 'W': 'Crater Tycho'},
-     'Crater Tycho': {'name': 'Crater Tycho', 'N': 'Pirate Base', 'W':'Moon Core','E':'Moon Core','S':'Pirate Base' },
-     'Pirate Base': {'name': 'Pirate Base', 'N': 'Crater Tycho', 'W':'Mineral Deposit 1','E':'Mineral Deposit 1','S':'Crater Tycho' },
-     'Mineral Deposit 1': {'name': 'Mineral Deposit 1', 'N': 'Moon Core', 'W':'Pirate Base','E':'Pirate Base','S':'Landing Zone' }
+locations = {'Landing Zone': {'name': 'Landing Zone', 'S': 'Great Dessert', 'N': 'Olympus Mons', },
+     'Great Dessert': {'name': 'Great Dessert', 'E': 'Olympus Mons', 'N': 'Landing Zone', 'S': 'South Pole', 'W': 'Olympus Mons'},
+     'South Pole': {'name': 'South Pole', 'N': 'Great Dessert', 'S':'Landing Zone' },
+     'Olympus Mons': {'name': 'Olympus Mons', 'W':'Great Dessert','E':'Great Dessert'},
      }
 
 def descend():
