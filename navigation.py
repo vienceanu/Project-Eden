@@ -41,7 +41,10 @@ class Uranus:
 class Jupiter:
     Resources = ["Hydrogen", "Helium"]
     Locations = ["Mt. Jupiter", "Alien Hole", "Storm's Eye"]
-
+    
+class Earth:
+    Resources = ["You Can't do that Here!"]
+    Locations = ["Survivor's Enclave"]
 
 class Neptune:
     Resources = ["Hydrogen", "Helium"]
