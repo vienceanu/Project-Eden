@@ -11,7 +11,7 @@ import trader
 class Trader:
     money = 10000000000
     minerals =  { "uranium": 50, "iron": 10, "titanium": 20, "water": 1, "hydrogen":1, "helium": 3, }
-    location = ""
+    location = "pluto"
 
 class Mercury:
     Resources = ["Uranium"]
@@ -55,8 +55,8 @@ class Sun:
 landable_planet=["mercury", "venus", "earth", "mars", "pluto", "moon"]
 fuel = Ship.Fuel
 verbs = ["map", "travel", "survey", "mine", "status", "help", "trade", "craft" ]
-solar_system = {"sun":0, "mercury":15, "venus":23, "earth":30, "moon":31, "mars": 36, "jupiter":45, 
-                "saturn": 53, "uranus": 68, "neptune": 79, "pluto": 120 }
+
+
 
 def write_to_json(data):
     with open("data.json", "w") as f:
@@ -85,31 +85,35 @@ def str_to_class(str):
 
 #Finds the distance position of a planet
 def return_key(destination):
-    for key, value in solar_system.items():
-        if key==destination:
-            return int(value)
+    return solar_system.get(destination)
+
+solar_system = {"sun":0, "mercury":15, "venus":23, "earth":30, "moon":31, "mars": 36, "jupiter":45, 
+                "saturn": 53, "uranus": 68, "neptune": 79, "pluto": 120 }
         
-def trader_planet_move(dictionary, n):
-    if n < 0:
-        n += len(dictionary)
-    for i, key in enumerate(dictionary.keys()):
-        if i == n:
-            return key
+def trader_planet_move(dictionary):
+    # if n < 0:
+    #     n += len(dictionary)
+    # for i, key in enumerate(dictionary.keys()):
+    #     if i == n:
+    #         return key
+    random.choice(list(dictionary.keys()))
+        
+        
 #checks if we have enough fuel, 
 def fuel_Check(destination):
     return fuel >= abs(return_key(cur_location) - return_key(destination))
 
-# #testing trader
-# trader2 = trader_planet_move(solar_system)
 
 
 def navigation_mode():
     global cur_location
     with open("data.json", "r") as f:
         data = json.load(f)
-    cur_location = "Pluto"
+    cur_location = "pluto"
     print("You drift Motionless through space\n")
+    #############################
     print(Trader.location)
+    ################################
     if Ship.location == Trader.location:
         print(f"There is a trader convoy at your current location, maybe they have some wares......\n")
     while Ship.dockStatus == 0:
@@ -150,24 +154,22 @@ def navigation_mode():
             elif answer == "travel":
                 print(f"You are currently at {Ship.location}. Where would you like to travel?")
                 val1 = input("Travel Destination:").lower()
-                if val1 in solar_system :
+                if val1 in solar_system and fuel_Check(val1) == True:
                     print(cur_location)
                     #156 doesnt return teh right type
-                    # Ship.Fuel -= (abs(return_key(cur_location) - return_key(val1)))
+                    Ship.Fuel -= (abs(return_key(cur_location) - return_key(val1)))
                     Ship.location= val1
                     cur_location = val1
                     data['ship']['Fuel'] = Ship.Fuel
                     data['ship']['location'] = Ship.location
                     write_to_json(data)
                     print(cur_location)
-
                     print(f"Your new location: {Ship.location}")
                     print(f"Fuel Left: {Ship.Fuel}")
                     print(f"initialized trader location: {Trader.location}")
                     Trader.location == ""
                     print(f"cleared trader location : {Trader.location}")
-                    
-                    Trader.location == trader_planet_move(solar_system, random.randint(1,9))
+                    Trader.location == trader_planet_move(solar_system)
                     print(f"new trader location: {Trader.location}")
                     
                     navigation_mode()
@@ -181,4 +183,3 @@ def navigation_mode():
             
 #navigation mode testing, remove to launch game
 # navigation_mode()
-print(return_key('pluto'))

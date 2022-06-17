@@ -1,6 +1,6 @@
 import json
 import random
-import navigation
+
 from Ship import *
 
 def write_to_json(data):

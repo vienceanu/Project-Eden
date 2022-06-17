@@ -1,3 +1,4 @@
+import textwrap
 #Main page, this is where we import from other files
 #Import Packages
 from game import run
@@ -15,11 +16,11 @@ def menu():
         elif answer =='help':
             help_file = open("mainMenuHelp.txt")
             file_contents = help_file.read()
-            print(file_contents)
+            print (textwrap.fill(file_contents, width=80))
         elif answer =='story':
             story_file = open("story.txt")
             file_contents1 = story_file.read()
-            print(file_contents1)
+            print (textwrap.fill(file_contents1, width=80))
         elif answer == 'start':
             run()
             pass

@@ -3,7 +3,7 @@
     "ship": {
         "DockStatus": 0,
         "Doge": 100,
-        "Fuel": 100000,
+        "Fuel": 99933,
         "HP": 50,
         "Hull": 1.2,
         "Inventory": {
@@ -21,6 +21,6 @@
             "uranium": 0,
             "water": 0
         },
-        "location": "neptune"
+        "location": "pluto"
     }
 }
