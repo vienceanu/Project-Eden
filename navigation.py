@@ -58,7 +58,7 @@ class Sun:
 #Data 
 landable_planet=["mercury", "venus",  "mars", "pluto", "moon"]
 fuel = Ship.Fuel
-verbs = ["map", "travel", "survey", "mine", "status", "help", "trade", "craft" ]
+verbs = ["map", "travel", "survey", "mine", "status", "help", "trade", "craft","descend" ]
 
 
 
@@ -192,20 +192,20 @@ def navigation_mode():
             elif answer == "survey":
                 print(f"Resources at {Ship.location} are:\n")
                 print(str_to_class(Ship.location).Resources)
-            elif answer == "descend" and answer in landable_planet:
-                if answer == "mars":
+            elif answer == "descend" and Ship.location in landable_planet:
+                if Ship.location == "mars":
                     print(f"Descending into {Ship.location} \n")
                     mars_landing.descend()
-                elif answer == "mercury":
+                elif Ship.location == "mercury":
                     print(f"Descending into {Ship.location} \n")
                     mercury_landing.descend()
-                elif answer == "moon":
+                elif Ship.location == "moon":
                     print(f"Descending into {Ship.location} \n")
                     moon_landing.descend()
-                elif answer == "pluto":
+                elif Ship.location == "pluto":
                     print(f"Descending into {Ship.location} \n")
                     pluto_landing.descend()
-                elif answer == "venus":
+                elif Ship.location == "venus":
                     print(f"Descending into {Ship.location} \n")
                     venus_landing.descend()
                 ###insert the string form the list to access the file.
@@ -254,4 +254,4 @@ def navigation_mode():
             print("Command not recognized")
             
 #navigation mode testing, remove to launch game
-# navigation_mode()
+navigation_mode()
