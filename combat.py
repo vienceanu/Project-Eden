@@ -1,23 +1,9 @@
 from Ship import Ship
-import Monster
+from Monster import *
 import time 
 import random
 import json
 from navigation import *
-
-# Player Variables
-global Player_Hp 
-global Player_DMG 
-Player_Hp = 50
-Player_DMGLG = Ship.Inventory["LG"]
-Player_DMGTor = Ship.Inventory["Tor"]
-Player_DMG = Player_DMGLG
-
-# Enemy Variables
-global ename 
-ename = "Pirate"
-global enemy_dmg 
-enemy_dmg= 2
 
 def write_to_json(data):
     with open("data.json", "w") as f:
@@ -29,36 +15,48 @@ def write_to_json(data):
 #             return int(value)
 #     return('Key Not Found')
 
-def combat_intro():
-    print("You encounter an enemy!")
+def combat_intro(Monster):
+    print(f"You encounter an enemy. It's {Monster.name}!")
     answer = input("Do you wish to try and flee?\n").lower()
     if (answer == "flee") or (answer == "yes"):
         time.sleep(3)
         print("Successfully Fled")
     else:
         print("Get ready for combat!\n")
+        combat(Monster)
 
-def combat ():
-    global enemy_Hp 
-    enemy_Hp = 20
-    print(f"{ename} is approaching the your ship, ready to attack\n")
-    print("How do you proceeed? \n")
+def combat(Monster): 
+    enemy_Hp = Monster.Hp
+    enemy_dmg = Monster.Dmg
+    Player_DMG = Ship.Weapons["LG"]
+    print(f"{Monster.name} is approaching the your ship, ready to attack\n")
+    print("How do you proceed? \n")
     while enemy_Hp > 0:
         action = input("Shoot | Flee | Change Weapon\n").lower()
         if action == "shoot":
-            dmgtoe = Player_DMG + random.randint(0, 9)
-            print(f"you inflict {dmgtoe} damage, and your enemy has {enemy_Hp} left. \n")
-            enemy_Hp = enemy_Hp - dmgtoe
+            if Player_DMG == Ship.Weapons["Tor"]:
+                if Ship.Resources["torpedo"] > 0:
+                    Ship.Resources["torpedo"] -= 1
+                else:
+                    print("out of Torpedoes :(\nswitching back to Laser Gun :)")
+                    Player_DMG = Ship.Weapons["LG"]
+            TotalDmg = Player_DMG + random.randint(0, 5)
+            enemy_Hp = enemy_Hp - TotalDmg
             if enemy_Hp <= 0:
                 prize = random.choice(list(Ship.Resources))
                 prize_amt = random.randint(1,3)
                 Ship.Resources[prize] += prize_amt
-                print(f"You have defeated the {ename}, and took {prize_amt} {prize} they dropped\n")
-                navigation_mode()
-            Player_Hp = Player_Hp - enemy_dmg
-            if Player_Hp <= 0:
-                print(f"Your ship has been destroyed! Game over\n")
+                print(f"You dealt {TotalDmg} damage, defeating {Monster.name}, and took {prize_amt} {prize} they dropped\n")
+                quit()
+            print(f"You inflicted {TotalDmg} damage, and your enemy has {enemy_Hp} remaining HP.")
+            Ship.HP = Ship.HP - enemy_dmg
+            print("Your enemy fires back!")
+            if Ship.HP <= 0:
+                print(f"Your ship has been destroyed! Game over, loser\n")
                 exit()
+            else:
+                print(f"You've been dealt {enemy_dmg} damage, and you have {Ship.HP} HP left \n")
+
         elif action == "flee":
             player_Flee = random.randint(1,100)
             enemy_Flee = random.randint(1,100)
@@ -66,30 +64,27 @@ def combat ():
                 print(f"You have successfully escaped {ename}\n")
                 enemy_Hp = 0
             else:
-                print(f"You failed to escape\n")
+                print(f"You failed to escape, and were hit")
+                Ship.HP = Ship.HP - enemy_dmg
+                print(f"You've been dealt {enemy_dmg} damage, and you have {Ship.HP} HP left \n")
         #Interesting bug where the weapon doesn't change right away. 
         elif action == "change weapon":
-            if Player_DMG == Player_DMGLG:
-                Player_DMG == Player_DMGTor
+            if Player_DMG == Ship.Weapons["LG"]:
+                Player_DMG = Ship.Weapons["Tor"]
                 print("Switched to Torpedo\n")
             else:
-                Player_DMG == Player_DMGLG
+                Player_DMG = Ship.Weapons["LG"]
                 print("Switched to Laser Gun\n")
         elif action == "help":
             combat_help_file = open("combatHelp.txt")
             file_contents = combat_help_file.read()
-            print(file_contents)
-            
+            print(file_contents)        
     # with open("data.json", "r") as f:
-    #     data = json.load(f)
+    # data = json.load(f)
     # data['ship']['HP'] = Player_Hp
     # write_to_json(data)
-
-    
-combat_intro()
-combat()
             
-            
+combat_intro(Alien)
             
             
             
