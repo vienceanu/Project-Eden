@@ -72,20 +72,21 @@ def write_to_json(data):
         json.dump(data,f,indent=4,sort_keys=True)
 
 def trader_mode():
-    print(f"Welcome to my shop! I have many fine wares!\n") 
-    decision = input(f"Are you making a purchase, or looking to sell?\n").lower()
-    if decision == "help":
-        trader_help_file = open("traderHelp.txt")
-        trader_contents = trader_help_file.read()
-        print(trader_contents)
-    elif decision == 'leave':
-        navigation_mode()
-    elif decision == "buy":
-        trader.buy_mode(Ship.doge, Ship.Resources)
-    elif decision == "sell":
-        trader.sell_mode(Ship.doge, Ship.Resources)
-    else:
-        print(f"")
+    while True:
+        print(f"Welcome to my shop! I have many fine wares!\n") 
+        decision = input(f"Are you making a purchase, or looking to sell?\n").lower()
+        if decision == "help":
+            trader_help_file = open("traderHelp.txt")
+            trader_contents = trader_help_file.read()
+            print(trader_contents)
+        elif decision == 'leave':
+            navigation_mode()
+        elif decision == "buy":
+            trader.buy_mode(Ship.doge, Ship.Resources)
+        elif decision == "sell":
+            trader.sell_mode(Ship.doge, Ship.Resources)
+        else:
+            print(f"")
 
 
 #String to Class Object
