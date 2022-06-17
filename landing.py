@@ -1,10 +1,10 @@
-locations = {'Landing Zone': {'name': 'Landing Zone', 'South': 'Moon Core', 'North': 'Mineral Deposit 1', },
-     'Moon Core': {'name': 'Moon Core', 'East': 'Crater Tycho', 'North': 'Landing Zone', 'South': 'Mineral Depository', 'West': 'Crater Tycho'},
-     'Crater Tycho': {'name': 'Crater Tycho', 'North': 'Pirate Base', 'West':'Moon Core','East':'Moon Core','South':'Pirate Base' },
-     'Pirate Base': {'name': 'Pirate Base', 'North': 'Crater Tycho', 'West':'Mineral Deposit 1','East':'Mineral Deposit 1','South':'Crater Tycho' },
-     'Mineral Deposit 1': {'name': 'Mineral Deposit 1', 'North': 'Moon Core', 'West':'Pirate Base','East':'Pirate Base','South':'Landing Zone' }
+locations = {'Landing Zone': {'name': 'Landing Zone', 'S': 'Moon Core', 'N': 'Mineral Deposit 1', },
+     'Moon Core': {'name': 'Moon Core', 'E': 'Crater Tycho', 'N': 'Landing Zone', 'S': 'Mineral Depository', 'W': 'Crater Tycho'},
+     'Crater Tycho': {'name': 'Crater Tycho', 'N': 'Pirate Base', 'W':'Moon Core','E':'Moon Core','S':'Pirate Base' },
+     'Pirate Base': {'name': 'Pirate Base', 'N': 'Crater Tycho', 'W':'Mineral Deposit 1','E':'Mineral Deposit 1','S':'Crater Tycho' },
+     'Mineral Deposit 1': {'name': 'Mineral Deposit 1', 'N': 'Moon Core', 'W':'Pirate Base','E':'Pirate Base','S':'Landing Zone' }
      }
-directions = ['North', 'South', 'East', 'West']
+directions = ['N', 'S', 'E', 'W']
 current_room = locations['Landing Zone']
 
 # game loop
@@ -14,14 +14,14 @@ while True:
     print('You are in the {}.'.format(current_room['name']))
 
   # get user input
-    command = input('\nWhat direction do you want to go? ').strip()
+    command = input('\nWhat direction do you want to go? ').upper()
   # movement
     if command in directions:
         if command in current_room:
             current_room = locations[current_room[command]]
         else:
         # bad movement
-            print("You can't go that way.")
+            print("Desolate emptiness, best not head that way....")
   # Exit game
     elif command.lower() in ('q', 'quit'):
         break
