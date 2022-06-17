@@ -82,16 +82,16 @@ def trader_mode():
         elif decision == 'leave':
             navigation_mode()
         elif decision == "buy":
-            trader.buy_mode(Ship.doge, Ship.Resources)
+            buy_mode(Ship.doge, Ship.Resources)
         elif decision == "sell":
-            trader.sell_mode(Ship.doge, Ship.Resources)
+            sell_mode(Ship.doge, Ship.Resources)
         else:
             print(f"")
 
 
 #String to Class Object
 def str_to_class(str):
-    return getattr(sys.modules[__name__], str)
+    return getattr(sys.modules[__name__], str.capitalize())
 
 #Finds the distance position of a planet
 def return_key(destination):
