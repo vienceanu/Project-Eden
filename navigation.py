@@ -3,7 +3,11 @@ import time
 import json
 import time
 import random
-import landing
+import descends.mars as mars_landing
+import descends.mercury as mercury_landing
+import descends.moon as moon_landing
+import descends.pluto as pluto_landing
+import descends.venus as venus_landing
 from Ship import Ship as Ship
 from Stages import *
 import trader
@@ -52,7 +56,7 @@ class Sun:
 
 
 #Data 
-landable_planet=["mercury", "venus", "earth", "mars", "pluto", "moon"]
+landable_planet=["mercury", "venus",  "mars", "pluto", "moon"]
 fuel = Ship.Fuel
 verbs = ["map", "travel", "survey", "mine", "status", "help", "trade", "craft" ]
 
@@ -189,8 +193,23 @@ def navigation_mode():
                 print(f"Resources at {Ship.location} are:\n")
                 print(str_to_class(Ship.location).Resources)
             elif answer == "descend" and answer in landable_planet:
-                print(f"Descending into {Ship.location} \n")
-                landing.descend()
+                if answer == "mars":
+                    print(f"Descending into {Ship.location} \n")
+                    mars_landing.descend()
+                elif answer == "mercury":
+                    print(f"Descending into {Ship.location} \n")
+                    mercury_landing.descend()
+                elif answer == "moon":
+                    print(f"Descending into {Ship.location} \n")
+                    moon_landing.descend()
+                elif answer == "pluto":
+                    print(f"Descending into {Ship.location} \n")
+                    pluto_landing.descend()
+                elif answer == "venus":
+                    print(f"Descending into {Ship.location} \n")
+                    venus_landing.descend()
+                ###insert the string form the list to access the file.
+                
                 
             elif answer == "mine":
                 print(f"Mining.....")
@@ -210,7 +229,6 @@ def navigation_mode():
                 val1 = input("Travel Destination:").lower()
                 if val1 in solar_system and fuel_Check(val1) == True:
                     print(cur_location)
-                    #156 doesnt return teh right type
                     Ship.Fuel -= (abs(return_key(cur_location) - return_key(val1)))
                     Ship.location= val1
                     cur_location = val1
