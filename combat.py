@@ -3,7 +3,6 @@ import Monster
 import time 
 import random
 import json
-from navigation import *
 
 # Player Variables
 
@@ -34,8 +33,7 @@ def combat_intro():
     if (answer == "flee") or (answer == "yes"):
         time.sleep(3)
         print("Successfully Fled")
-        navigation_mode()
-        quit()
+        return
     else:
         print("Get ready for combat!\n")
 
@@ -56,7 +54,7 @@ def combat ():
                 prize_amt = random.randint(1,3)
                 Ship.Resources[prize] += prize_amt
                 print(f"You have defeated the {ename}, and took {prize_amt} {prize} they dropped\n")
-                navigation_mode()
+                return
             Player_Hp = Player_Hp - enemy_dmg
             if Player_Hp <= 0:
                 print(f"Your ship has been destroyed! Game over\n")
