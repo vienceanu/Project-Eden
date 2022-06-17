@@ -6,8 +6,7 @@ import json
 from navigation import *
 
 # Player Variables
-global Player_Hp 
-global Player_DMG 
+
 Player_Hp = 50
 Player_DMGLG = Ship.Inventory["LG"]
 Player_DMGTor = Ship.Inventory["Tor"]
@@ -40,6 +39,7 @@ def combat_intro():
 
 def combat ():
     global enemy_Hp 
+    global Player_Hp
     enemy_Hp = 20
     print(f"{ename} is approaching the your ship, ready to attack\n")
     print("How do you proceeed? \n")
