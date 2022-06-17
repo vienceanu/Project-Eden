@@ -56,7 +56,7 @@ class Sun:
 
 
 #Data 
-landable_planet=["mercury", "venus",  "mars", "pluto", "moon"]
+landable_planet=["mercury", "venus", "mars", "pluto", "moon"]
 fuel = Ship.Fuel
 verbs = ["map", "travel", "survey", "mine", "status", "help", "trade", "craft","descend" ]
 
