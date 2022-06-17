@@ -3,13 +3,16 @@ import time
 import json
 import time
 import random
+
+import Upgrading
 import descends.mars as mars_landing
 import descends.mercury as mercury_landing
 import descends.moon as moon_landing
 import descends.pluto as pluto_landing
 import descends.venus as venus_landing
-
 from Ship import Ship as Ship
+from Upgrading import Gun as Gun
+from Upgrading import Hull as Hull
 from Stages import *
 import trader
 
@@ -73,8 +76,8 @@ def write_to_json(data):
         json.dump(data,f,indent=4,sort_keys=True)
 
 def trader_mode():
+    print(f"Welcome to my shop! I have many fine wares!\n")
     while True:
-        print(f"Welcome to my shop! I have many fine wares!\n") 
         decision = input(f"Are you making a purchase, or looking to sell?\n").lower()
         if decision == "help":
             trader_help_file = open("traderHelp.txt")
@@ -169,19 +172,98 @@ def sell_mode(doge, Resources):
             trader_mode()
         else:
             print("Incorrect Selection\n")
-            
+
+def upgrading_mode():
+
+    while True:
+        with open("data.json", "r") as f:
+            data = json.load(f)
+        print("Your Laser Gun is at level " + str(Ship.LGLevel))
+        print("Your Ship Hull is at level " + str(Ship.HullLevel))
+        upgrade = input("What would you like to upgrade?: ").lower()
+        if upgrade == "lg":
+            if Ship.LGLevel == 5:
+                print("You are at the max level for Laser Gun.")
+                break
+            print("You need the below resources to upgrade Laser Gun to the next level:")
+            for item in list(Upgrading.Gun.Resources.keys()):
+                print(str(item) + ": " + str((Upgrading.Gun.Resources[item] * Ship.LGLevel)))
+            answer = input(print("Do you want to upgrade? Enter y or n:")).lower()
+            if answer == "y":
+                enough = True
+                for item in Upgrading.Gun.Resources:
+                    if Ship.Resources[item] < Upgrading.Gun.Resources[item]:
+                        enough = False
+                        break
+                if enough:
+                    for item in Upgrading.Gun.Resources:
+                        Ship.Resources[item] -= Upgrading.Gun.Resources[item]
+                        data['ship']['Resources'][item] = Ship.Resources[item]
+                        write_to_json(data)
+                    Ship.LGLevel = Ship.LGLevel + 1
+                    data['ship']['LGLevel'] = Ship.LGLevel
+                    write_to_json(data)
+                    print("Upgrade complete.")
+                    print("Your Laser Gun is now level " + str(Ship.LGLevel))
+                else:
+                    print("You do not have enough resources to upgrade.")
+                break
+            elif answer == "n":
+                print("Upgradation cancelled.")
+            else:
+                print("Command not recognized")
+        elif upgrade == "hull":
+            if Ship.HullLevel == 5:
+                print("You are at the max level for Ship Hull.")
+                break
+            print("You need the below resources to upgrade Ship Hull to the next level:")
+            for item in list(Upgrading.Hull.Resources.keys()):
+                print(str(item) + ": " + str((Upgrading.Hull.Resources[item] * Ship.HullLevel)))
+
+            answer = input(print("Do you want to upgrade? Enter y or n:")).lower()
+            if answer == "y":
+                enough = True
+                for item in Upgrading.Hull.Resources:
+                    if Ship.Resources[item] < Upgrading.Hull.Resources[item]:
+                        enough = False
+                        break
+                if enough:
+                    for item in Upgrading.Hull.Resources:
+                        Ship.Resources[item] -= Upgrading.Hull.Resources[item]
+                        data['ship']['Resources'][item] = Ship.Resources[item]
+                    Ship.HullLevel += 1
+                    data['ship']['HullLevel'] = Ship.HullLevel
+                    write_to_json(data)
+                    print("Upgrade complete.")
+                    print("Your Ship Hull is now level " + str(Ship.HullLevel))
+                else:
+                    print("You do not have enough resources to upgrade.")
+                break
+            elif answer == "n":
+                print("Upgradation cancelled.")
+            else:
+                print("Command not recognized")
+        elif upgrade == "leave":
+            break
+        else:
+            print("Command not recognized")
+
 def navigation_mode():
     global cur_location
+
     with open("data.json", "r") as f:
         data = json.load(f)
-    cur_location = "pluto"
+
+    cur_location = Ship.location
+
     print("You drift Motionless through space\n")
     #############################
     print(Trader.location)
     ################################
-    if Ship.location == Trader.location or Trader1.location:
+    if Ship.location == Trader.location or Ship.location == Trader1.location:
         print(f"There is a trader convoy at your current location, maybe they have some wares......\n")
     while Ship.dockStatus == 0:
+
         answer = input("Your Answer: ")
         if answer in verbs:
             if answer == "map":
@@ -216,11 +298,10 @@ def navigation_mode():
                     print(f"Descending into {Ship.location} \n")
                     venus_landing.descend()
                 ###insert the string form the list to access the file.
-                
-                
+
             elif answer == "mine":
                 print(f"Mining.....")
-                time.sleep(3)
+                #time.sleep(3)
                 arr = str_to_class(Ship.location).Resources
                 for i in range(len(arr)):
                     Ship.Resources[arr[i].lower()] += 2
@@ -235,12 +316,12 @@ def navigation_mode():
                 quit()
             elif answer == "travel":
                 print(f"You are currently at {Ship.location}. Where would you like to travel?")
-                val1 = input("Travel Destination:").lower()
-                if val1 in solar_system and fuel_Check(val1) == True:
+                destination = input("Travel Destination:").lower()
+                if destination in solar_system and fuel_Check(destination) == True:
                     print(cur_location)
-                    Ship.Fuel -= (abs(return_key(cur_location) - return_key(val1)))
-                    Ship.location= val1
-                    cur_location = val1
+                    Ship.Fuel -= (abs(return_key(cur_location) - return_key(destination)))
+                    Ship.location= destination
+                    cur_location = destination
                     data['ship']['Fuel'] = Ship.Fuel
                     data['ship']['location'] = Ship.location
                     write_to_json(data)
@@ -259,6 +340,14 @@ def navigation_mode():
                 # Add a differentiation between fuel and not being able to travel.
                 else:
                     print("Cannot travel")
+            elif answer == "craft":
+                print("Welcome to the crafting workshop!")
+                print("You can upgrade things here")
+                print("Enter LG to upgrade laser gun")
+                print("Enter hull to upgrade Ship Hull")
+                print("Enter leave to leave the crafting workshop")
+                upgrading_mode()
+
         else:
             print("Command not recognized")
             
