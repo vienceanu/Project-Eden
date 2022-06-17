@@ -8,9 +8,10 @@ import descends.mercury as mercury_landing
 import descends.moon as moon_landing
 import descends.pluto as pluto_landing
 import descends.venus as venus_landing
-import textwrap
+
 from Ship import Ship as Ship
 from Stages import *
+import trader
 
 class Trader:
     money = 10000000000
