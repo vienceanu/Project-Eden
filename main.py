@@ -16,7 +16,7 @@ def menu():
         elif answer =='help':
             help_file = open("mainMenuHelp.txt")
             file_contents = help_file.read()
-            print (textwrap.fill(file_contents, width=80))
+            print (file_contents)
         elif answer =='story':
             story_file = open("story.txt")
             file_contents1 = story_file.read()
