@@ -1,3 +1,4 @@
+import time
 locations = {'Landing Zone': {'name': 'Landing Zone', 'S': 'Moon Core', 'N': 'Mineral Deposit 1', },
      'Moon Core': {'name': 'Moon Core', 'E': 'Crater Tycho', 'N': 'Landing Zone', 'S': 'Mineral Deposit 1', 'W': 'Crater Tycho'},
      'Crater Tycho': {'name': 'Crater Tycho', 'N': 'Pirate Base', 'W':'Moon Core','E':'Moon Core','S':'Pirate Base' },
@@ -26,6 +27,9 @@ def descend():
               print("Desolate emptiness, best not head that way....")
     # Exit game
       elif command.lower() in ('leave'):
+          print("Ascending....")  
+          time.sleep(2)
+          print("\n Welcome Back Cadet!")
           return
     # bad command
       else:

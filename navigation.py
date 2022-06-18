@@ -270,7 +270,7 @@ def navigation_mode():
         print(f"There is a trader convoy at your current location, maybe they have some wares......\n")
     while True:
 
-        answer = input("Your Answer: ").strip()
+        answer = input("Your Answer: ").strip().lower()
         if answer in verbs:
             if answer == "map":
                 print("Here is the map\n")

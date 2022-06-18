@@ -1,3 +1,4 @@
+import time
 locations = {'Landing Zone': {'name': 'Landing Zone', 'S': 'Uranium Fields', 'N': 'Uranium Fields', },
      'Uranium Fields': {'name': 'Uranium Fields', 'S': 'Landing Zone'}
      }
@@ -23,6 +24,9 @@ def descend():
               print("Desolate emptiness, best not head that way....")
     # Exit game
       elif command.lower() in ('leave'):
+          print("Ascending....")  
+          time.sleep(2)
+          print("\n Welcome Back Cadet!")
           return
     # bad command
       else:
