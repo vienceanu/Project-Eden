@@ -2,18 +2,23 @@
 
 
 class Pirate:
-    Hp = 20
-    DMG = 2
+    enemy_name = "Pirate"
+    enemy_Hp = 20
+    enemy_dmg = 2
+
     
 class Pirate_Captain:
-    Hp = 50
-    Dmg = 3
+    enemy_name = "Pirate Captain"
+    enemy_Hp = 50
+    enemy_dmg = 3
+
     
 class Alien:
     Hp = 30
     Dmg = 5
 
 class Alien_Queen:
-    Hp = 100
-    Dmg = 10
+    enemy_name = "Alien Queen"
+    enemy_Hp = 1000
+    enemy_dmg = 10
     

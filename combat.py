@@ -12,10 +12,8 @@ Player_DMGTor = Ship.Inventory["Tor"]
 Player_DMG = Player_DMGLG
 
 # Enemy Variables
-global ename 
-ename = "Pirate"
-global enemy_dmg 
-enemy_dmg= 2
+# global enemy_dmg 
+# enemy_dmg= 2
 
 def write_to_json(data):
     with open("data.json", "w") as f:
@@ -37,11 +35,16 @@ def combat_intro():
     else:
         print("Get ready for combat!\n")
 
-def combat ():
-    global enemy_Hp 
+class Alien_Queen:
+    enemy_name = "Alien Queen"
+    enemy_Hp = 1000
+    enemy_dmg = 10
+
+def combat (enemy_name, enemy_Hp, enemy_dmg):
     global Player_Hp
-    enemy_Hp = 20
-    print(f"{ename} is approaching your ship, ready to attack")
+    # ename = enemy_name
+    # enemy_Hp = 20
+    print(f"{enemy_name} is approaching your ship, ready to attack")
     print("How do you proceeed? ")
     while enemy_Hp > 0:
         action = input("Shoot | Flee | Change Weapon\n").lower()
@@ -53,7 +56,7 @@ def combat ():
                 prize = random.choice(list(Ship.Resources))
                 prize_amt = random.randint(1,3)
                 Ship.Resources[prize] += prize_amt
-                print(f"You have defeated the {ename}, and took {prize_amt} {prize} they dropped\n")
+                print(f"You have defeated the {enemy_name}, and took {prize_amt} {prize} they dropped\n")
                 return
             Player_Hp = Player_Hp - enemy_dmg
             if Player_Hp <= 0:
@@ -64,7 +67,7 @@ def combat ():
             player_Flee = random.randint(1,100)
             enemy_Flee = random.randint(1,100)
             if player_Flee > enemy_Flee:
-                print(f"You have successfully escaped {ename}\n")
+                print(f"You have successfully escaped {enemy_name}\n")
                 enemy_Hp = 0
             else:
                 print(f"You failed to escape\n")
@@ -88,7 +91,7 @@ def combat ():
 
     
 # combat_intro()
-# combat()
+combat(Alien_Queen.enemy_name, Alien_Queen.enemy_Hp, Alien_Queen.enemy_dmg)
             
             
             
