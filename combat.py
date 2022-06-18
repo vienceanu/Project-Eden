@@ -84,7 +84,6 @@ def combat(Monster):
     # data['ship']['HP'] = Player_Hp
     # write_to_json(data)
             
-combat_intro(Alien)
             
             
             

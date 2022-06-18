@@ -1,11 +1,11 @@
 ####################################################
-# Welcome to the Navigation Dashboard. Form here   #
+# Welcome to the Navigation Dashboard. From here   #
 # you can command the ships A.I to Map, Status,    #
 # Survey, Travel, Trade.                           #
 ####################################################
 # Map - Brings up the Map of Solar System          #
 # Status - Shows status of ships                   #
-# Survey - Sruveys the planet for resources        #
-# Travel - leave trader                            #
+# Survey - Surveys the planet for resources        #
+# Travel - Leave trader                            #
 # Trade - Access trader                            #
 ####################################################

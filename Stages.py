@@ -1,6 +1,11 @@
+class Stages:
+    def __init__(self):
+        pass
+
+
 class Mercury:
     Resources = ["Uranium"]
-    Locations = ["Uranium Field's"]
+    Locations = ["Uranium Fields"]
 
 class Moon:
     Resources = ["Iron", "Titanium"]
@@ -27,8 +32,13 @@ class Mars:
     Locations = ["Olympus Mons", "South Pole", "The Great Desert"]
     
 class Pluto:
-    Locations = ["Pirate Hideout", "Endles Tundra"]
+    Locations = ["Pirate Hideout", "Endless Tundra"]
     
 class Sun:
     Resources = ["Ore-X"]
     Locations = ["Orbit"]
+
+class Earth:
+    Resources = ["You Can't do that Here!"]
+    Locations = ["Survivor's Enclave"]
+    
