@@ -153,6 +153,10 @@ def buy_mode(doge, Resources):
                 print("Insufficient funds, why not pick something else?")
         elif answer == "back":
             trader_mode()
+        elif answer == "help":
+            buy_help = open("buy_help.txt")
+            buy_contents = buy_help.read()
+            print (buy_contents)
         else:
             print("Incorrect Selection\n")
 
@@ -176,6 +180,10 @@ def sell_mode(doge, Resources):
                     print(f"Your new wallet balance is: {Ship.doge}\n")
         elif answer == "back":
             trader_mode()
+        elif answer == "help":
+            sell_help = open("sell_help.txt")
+            sell_contents = sell_help.read()
+            print (sell_contents)
         else:
             print("Incorrect Selection\n")
 
@@ -218,7 +226,7 @@ def upgrading_mode():
                     print("You do not have enough resources to upgrade.")
                 break
             elif answer == "n":
-                print("Upgradation cancelled.")
+                print("Upgrade cancelled.")
             else:
                 print("Command not recognized")
         elif upgrade == "hull":
@@ -228,7 +236,6 @@ def upgrading_mode():
             print("You need the below resources to upgrade Ship Hull to the next level:")
             for item in list(Upgrading.Hull.Resources.keys()):
                 print(str(item) + ": " + str((Upgrading.Hull.Resources[item] * Ship.HullLevel)))
-
             answer = input(print("Do you want to upgrade? Enter y or n:")).lower()
             if answer == "y":
                 enough = True
@@ -249,7 +256,7 @@ def upgrading_mode():
                     print("You do not have enough resources to upgrade.")
                 break
             elif answer == "n":
-                print("Upgradation cancelled.")
+                print("Upgrade cancelled.")
             else:
                 print("Command not recognized")
         elif upgrade == "leave":
@@ -377,4 +384,4 @@ def navigation_mode():
             print("Command not recognized")
             
 #navigation mode testing, remove to launch game
-# navigation_mode()
+navigation_mode()

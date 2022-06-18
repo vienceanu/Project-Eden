@@ -1,0 +1,10 @@
+####################################################
+# The trader is an NPC where you can sell your     #
+# valuable resources for doge, and then buy other  #
+# resources to upgrade your equipment.             #
+####################################################
+# Simply input the resources you wish to Buy and  #
+# confirm it                                       #
+#                                                  #
+# Back - leave trader                             #
+####################################################
