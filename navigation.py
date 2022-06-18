@@ -369,6 +369,14 @@ def navigation_mode():
                 destination = input("Travel Destination:\n").lower()
                 if destination in solar_system and fuel_Check(destination) == True:
                     if destination == "sun":
+                        Ship.Fuel -= (abs(return_key(cur_location) - return_key(destination)))
+                        Ship.location= destination
+                        cur_location = destination
+                        data['ship']['Fuel'] = Ship.Fuel
+                        data['ship']['location'] = Ship.location
+                        write_to_json(data)
+                        print(f"\nYour new location: {Ship.location.capitalize()}")
+                        print(f"Fuel Left: {Ship.Fuel}\n")
                         combat(Monster.Alien_Queen.enemy_name, Monster.Alien_Queen.enemy_Hp, Monster.Alien_Queen.enemy_dmg)
                     elif "Alien Queen Head" in Ship.quest_item and destination == "earth":
                         story_file = open("earth.txt")
