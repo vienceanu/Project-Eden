@@ -4,6 +4,7 @@ import time
 import json
 import time
 import random
+import Monster
 from combat import combat
 import Upgrading
 import descends.mars as mars_landing
@@ -328,19 +329,20 @@ def navigation_mode():
                 print(f"You are currently at {Ship.location}. Where would you like to travel?")
                 destination = input("Travel Destination:").lower()
                 if destination in solar_system and fuel_Check(destination) == True:
-                    print(cur_location)
-                    Ship.Fuel -= (abs(return_key(cur_location) - return_key(destination)))
-                    Ship.location= destination
-                    cur_location = destination
-                    data['ship']['Fuel'] = Ship.Fuel
-                    data['ship']['location'] = Ship.location
-                    write_to_json(data)
-                    print(cur_location)
-                    print(f"Your new location: {Ship.location}")
-                    print(f"Fuel Left: {Ship.Fuel}")
-                    if random.randint(1,5) == 5:
-                        combat()
-                    navigation_mode()
+                    if destination == "sun":
+                        combat(Monster.Alien_Queen.enemy_name, Monster.Alien_Queen.enemy_Hp, Monster.Alien_Queen.enemy_dmg)
+                    else:
+                        Ship.Fuel -= (abs(return_key(cur_location) - return_key(destination)))
+                        Ship.location= destination
+                        cur_location = destination
+                        data['ship']['Fuel'] = Ship.Fuel
+                        data['ship']['location'] = Ship.location
+                        write_to_json(data)
+                        print(f"Your new location: {Ship.location}")
+                        print(f"Fuel Left: {Ship.Fuel}")
+                        if random.randint(1,5) == 5:
+                            combat()
+                        navigation_mode()
 
 
                 # Add a differentiation between fuel and not being able to travel.

@@ -12,10 +12,15 @@ class Pirate_Captain:
     enemy_Hp = 50
     enemy_dmg = 3
 
+class Rogue_AI_Ship:
+    enemy_name = "Rogue AI"
+    enemy_Hp = 25
+    enemy_dmg = 6
     
 class Alien:
-    Hp = 30
-    Dmg = 5
+    enemy_name = "Alien"
+    enemy_Hp = 30
+    enemy_dmg = 5
 
 class Alien_Queen:
     enemy_name = "Alien Queen"
