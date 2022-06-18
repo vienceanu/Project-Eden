@@ -21,9 +21,14 @@ class Alien:
     enemy_name = "Alien"
     enemy_Hp = 30
     enemy_dmg = 5
+    
+class Cyborg_Cruiser:
+    enemy_name = "Cyborg Cruiser"
+    enemy_Hp = 100
+    enemy_dmg = 7
 
 class Alien_Queen:
     enemy_name = "Alien Queen"
-    enemy_Hp = 1000
+    enemy_Hp = 500
     enemy_dmg = 10
     

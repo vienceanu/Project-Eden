@@ -341,7 +341,19 @@ def navigation_mode():
                         print(f"Your new location: {Ship.location}")
                         print(f"Fuel Left: {Ship.Fuel}")
                         if random.randint(1,5) == 5:
-                            combat()
+                            #roll monster table
+                            if random.randint(1,11) <= 3 :
+                                combat(Monster.Pirate.enemy_name, Monster.Pirate.enemy_Hp, Monster.Pirate.enemy_dmg)
+                            elif 3 < random.randint(1,11) <= 6 :
+                                combat(Monster.Rogue_AI_Ship.enemy_name, Monster.Rogue_AI_Ship.enemy_Hp, Monster.Rogue_AI_Ship.enemy_dmg)
+                            elif 6 < random.randint(1,11) <= 9 :
+                                combat(Monster.Alien.enemy_name, Monster.Alien.enemy_Hp, Monster.Alien.enemy_dmg)    
+                            elif 3 < random.randint(1,11) <= 6 :
+                                combat(Monster.Rogue_AI_Ship.enemy_name, Monster.Rogue_AI_Ship.enemy_Hp, Monster.Rogue_AI_Ship.enemy_dmg)
+                            elif random.randint(1,11) == 10 :
+                                combat(Monster.Pirate_Captain.enemy_name, Monster.Pirate_Captain.enemy_Hp, Monster.Pirate_Captain.enemy_dmg)
+                            elif random.randint(1,11) == 11 :
+                                combat(Monster.Cyborg_Cruiser.enemy_name, Monster.Cyborg_Cruiser.enemy_Hp, Monster.Cyborg_Cruiser.enemy_dmg)
                         navigation_mode()
 
 
