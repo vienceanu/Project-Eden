@@ -6,30 +6,26 @@ from navigation import *
 exit = False
 inputs = ()
 def intro():
-    name = input("What is your name, cadet?\n")
-    print(f"Greetings, {name}. Let's throw you in")
-    print("barely clinging to life, all of your alarms are going off, no oxygen, no hope")
+    print("You wake up, barely clinging to life. Alarms on ship alert you to low oxygen and serious ship damage")
     print("How do you proceed?\n")
     print("1). Put on your Oxygen and Repair the Ship\n 2). Abandon all hope and give in")
     answer = input("Your Answer: ")
     if answer == "1":
-        print("You put on your seat and begin emergency procedural repairs. You life to fight another day. \n")
-        print("You hear a beeping noise coming from the cockpit. How do you proceed? \n")
-        print("1). Enter the cockpit \n 2). Wander the ship looking for surroundings")
+        print("Oxygenated air fills your lungs. You spend a few hours repairing the ship back until its only a bit broken")
+        print("Sitting down to take a break, you hear a beeping noise coming from the cockpit. How do you proceed? \n")
+        print("1). Enter the cockpit \n 2). Wander out the airlock")
         answer = input("Your Answer: ")
         if answer == "1":
             print("You enter the cockpit and are greeted by the ships A.I \n")
-            print(f"Greetings Captain {name}. I am your Ships A.I Cortana. \n")
+            print(f"Greetings cadet. I am your Ships A.I. \n")
             shipintro_file = open("shipsaiintro.txt")
             file_contents = shipintro_file.read()
             print(file_contents)
-            navigation_mode()
-            
+            navigation_mode()    
         elif answer == "2":
             print("Game Over")
         else:
             print("Command not recognized")
-
     elif answer == "2":
         print("Game Over")
         quit()

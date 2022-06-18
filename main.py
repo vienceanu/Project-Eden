@@ -5,7 +5,7 @@ from game import ctnGame
 
 # Main menu with simple options. 
 def menu():
-    print("Welcome to Project Eden, A space Colony Text Adventure Simulator")
+    print("Welcome to Project Eden: A Text-Based Space Adventure")
     print("Type Help if you need any help")
     while True:
         print("Welcome to the main menu! \n")
@@ -16,10 +16,6 @@ def menu():
             help_file = open("mainMenuHelp.txt")
             file_contents = help_file.read()
             print(file_contents)
-        elif answer =='story':
-            story_file = open("story.txt")
-            file_contents1 = story_file.read()
-            print(file_contents1)
         elif answer == 'start':
             run()
             pass

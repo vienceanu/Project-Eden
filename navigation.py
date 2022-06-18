@@ -8,43 +8,22 @@ from combat import *
 from Ship import Ship as Ship
 from Stages import *
 from trader import *
-
-#Data 
+ 
 landable_planet=["mercury", "venus", "mars", "pluto", "moon"]
 fuel = Ship.Fuel
 verbs = ["map", "travel", "survey", "mine", "status", "help", "trade", "craft","descend" ]
 
-
-
 def write_to_json(data):
     with open("data.json", "w") as f:
         json.dump(data,f,indent=4,sort_keys=True)
-
-def trader_mode():
-    print(f"Welcome to my shop! I have many fine wares!\n")
-    while True:
-        decision = input(f"Are you making a purchase, or looking to sell?\n").lower()
-        if decision == "help":
-            trader_help_file = open("traderHelp.txt")
-            trader_contents = trader_help_file.read()
-            print(trader_contents)
-        elif decision == 'leave':
-            navigation_mode()
-        elif decision == "buy":
-            buy_mode(Ship.doge, Ship.Resources)
-        elif decision == "sell":
-            sell_mode(Ship.doge, Ship.Resources)
-        else:
-            print(f"")
-
 
 #String to Class Object
 def str_to_class(str):
     return getattr(sys.modules[__name__], str.capitalize())
 
 #Finds the distance position of a planet
-def return_key(destination):
-    return solar_system.get(destination)
+def distance(planet):
+    return solar_system.get(planet)
 
 solar_system = {"sun":0, "mercury":15, "venus":23, "earth":30, "moon":31, "mars": 36, "jupiter":45, 
                 "saturn": 53, "uranus": 68, "neptune": 79, "pluto": 120 }
@@ -56,67 +35,15 @@ def trader_planet_move(dictionary):
     #     if i == n:
     #         return key
     random.choice(list(dictionary.keys()))
-        
-        
+       
 #checks if we have enough fuel, 
-def fuel_Check(destination):
-    return fuel >= abs(return_key(cur_location) - return_key(destination))
-
+def fuel_Check(planet):
+    return fuel >= abs(distance(cur_location) - distance(planet))
 
 def write_to_json(data):
     with open("data.json", "w") as f:
         json.dump(data,f,indent=4,sort_keys=True)
-        
 
-
-def buy_mode(doge, Resources):
-    with open("data.json", "r") as f:
-        data = json.load(f)
-    while True:
-        print(f"Welcome to my shop!\n Here are the current listing!\n")
-        print(json.dumps(Trader.minerals, indent=4, sort_keys=True))
-        answer = input("What are you buying? ").lower()
-        if answer in Trader.minerals:
-            if Trader.minerals[answer] <= Ship.doge:
-                confirm = input(f"Are you sure you wish to purchase {answer}? y/n \n").lower()
-                if confirm == "y":
-                    Ship.doge -= Trader.minerals[answer]
-                    data['ship']['Doge'] = Ship.doge
-                    print(f"Your new wallet balance is: {Ship.doge}\n")
-                    Ship.Resources[answer] += 1
-                    data['ship']['Resources'][answer] = Ship.Resources[answer]
-                    write_to_json(data)
-                elif confirm == "n":
-                    print(f"Your new wallet balance is: {Ship.doge}\n")
-            else:
-                print("Insufficient funds, why not pick something else?")
-        elif answer == "back":
-            trader_mode()
-        else:
-            print("Incorrect Selection\n")
-
-def sell_mode(doge, Resources):
-    with open("data.json", "r") as f:
-        data = json.load(f)
-    while True:
-        print("Welcome to my shop!\n What do you wish to sell?\n")
-        print(json.dumps(Ship.Resources, indent=4, sort_keys=True))
-        answer = input("What are you selling? ").lower()
-        if answer in Ship.Resources and Ship.Resources[answer] > 0:
-                confirm = input(f"Are you sure you wish to sell {answer}? y/n \n").lower()
-                if confirm == "y":
-                    Ship.doge += Trader.minerals[answer]
-                    data['ship']['Doge'] = Ship.doge
-                    print(f"Your new wallet balance is: {Ship.doge}\n")
-                    Ship.Resources[answer] -= 1
-                    data['ship']['Resources'][answer] = Ship.Resources[answer]
-                    write_to_json(data)
-                elif confirm == "n":
-                    print(f"Your new wallet balance is: {Ship.doge}\n")
-        elif answer == "back":
-            trader_mode()
-        else:
-            print("Incorrect Selection\n")
 
 def upgrading_mode():
 
@@ -194,17 +121,11 @@ def upgrading_mode():
             print("Command not recognized")
 
 def navigation_mode():
-    global cur_location
-
-    with open("data.json", "r") as f:
-        data = json.load(f)
-
-    cur_location = Ship.location
-
+    # with open("data.json", "r") as f:
+    #     data = json.load(f)
+    Ship.location
     print("You drift Motionless through space\n")
-    #############################
-    print(Trader.location)
-    ################################
+
     if Ship.location == Trader.location or Ship.location == Trader1.location:
         print(f"There is a trader convoy at your current location, maybe they have some wares......\n")
     while Ship.dockStatus == 0:
@@ -264,7 +185,7 @@ def navigation_mode():
                 destination = input("Travel Destination:").lower()
                 if destination in solar_system and fuel_Check(destination) == True:
                     print(cur_location)
-                    Ship.Fuel -= (abs(return_key(cur_location) - return_key(destination)))
+                    Ship.Fuel -= (abs(distance(cur_location) - distance(destination)))
                     Ship.location= destination
                     cur_location = destination
                     data['ship']['Fuel'] = Ship.Fuel
@@ -298,3 +219,9 @@ def navigation_mode():
             
 #navigation mode testing, remove to launch game
 #navigation_mode()
+a = 5
+b = 2 + 2
+c = 5
+
+if c == b or c==a:
+    print("suc")

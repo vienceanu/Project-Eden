@@ -16,6 +16,23 @@ class Trader1:
     minerals =  { "uranium": 50, "iron": 10, "titanium": 20, "water": 1, "hydrogen":1, "helium": 3, "torpedo" : 1}
     location = "moon"
 
+def trader_mode():
+    print(f"Welcome to my shop! I have many fine wares!\n")
+    while True:
+        decision = input(f"Are you making a purchase, or looking to sell?\n").lower()
+        if decision == "help":
+            trader_help_file = open("traderHelp.txt")
+            trader_contents = trader_help_file.read()
+            print(trader_contents)
+        elif decision == 'leave':
+            navigation_mode()
+        elif decision == "buy":
+            buy_mode(Ship.doge, Ship.Resources)
+        elif decision == "sell":
+            sell_mode(Ship.doge, Ship.Resources)
+        else:
+            print(f"")
+
 def buy_mode():
     with open("data.json", "r") as f:
         data = json.load(f)
@@ -24,17 +41,17 @@ def buy_mode():
         print(json.dumps(Trader.minerals, indent=4, sort_keys=True))
         answer = input("What are you buying? ").lower()
         if answer in Trader.minerals:
-            if Trader.minerals[answer] <= Ship.doge:
+            if Trader.minerals[answer] <= Ship.Money:
                 confirm = input(f"Are you sure you wish to purchase {answer}? y/n \n").lower()
                 if confirm == "y":
-                    Ship.doge -= Trader.minerals[answer]
-                    data['ship']['Doge'] = Ship.doge
-                    print(f"Your new wallet balance is: {Ship.doge}\n")
+                    Ship.Money -= Trader.minerals[answer]
+                    data['ship']['Money'] = Ship.Money
+                    print(f"Your new wallet balance is: {Ship.Money}\n")
                     Ship.Resources[answer] += 1
                     data['ship']['Resources'][answer] = Ship.Resources[answer]
                     write_to_json(data)
                 elif confirm == "n":
-                    print(f"Your new wallet balance is: {Ship.doge}\n")
+                    print(f"Your new wallet balance is: {Ship.Money}\n")
             else:
                 print(f"Insufficient funds, why not pick something else?")
         elif answer == "exit":
@@ -52,14 +69,14 @@ def sell_mode():
         if item in Ship.Resources and Ship.Resources[item] > 0:
                 confirm = input(f"Are you sure you wish to sell {item}? y/n \n").lower()
                 if confirm == "y":
-                    Ship.doge += Trader.minerals[item]
-                    data['ship']['Doge'] = Ship.doge
-                    print(f"Your new wallet balance is: {Ship.doge}\n")
+                    Ship.Money += Trader.minerals[item]
+                    data['ship']['Money'] = Ship.Money
+                    print(f"Your new wallet balance is: {Ship.Money}\n")
                     Ship.Resources[item] -= 1
                     data['ship']['Resources'][item] = Ship.Resources[item]
                     write_to_json(data)
                 elif confirm == "n":
-                    print(f"Your new wallet balance is: {Ship.doge}\n")
+                    print(f"Your new wallet balance is: {Ship.Money}\n")
         elif item == "exit":
             navigation_mode()
         else:
