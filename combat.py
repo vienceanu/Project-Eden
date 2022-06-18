@@ -58,7 +58,7 @@ def combat (enemy_name, enemy_Hp, enemy_dmg):
                     Ship.quest_item += "Alien Queen Head"
                     print(f"You have defeated the {enemy_name}, and took her head!\n")
                     print(f"Head back to Earth and alert them that Ore-X is capable of being farmed for humanity's salvation!")
-                    return
+                    return (Ship.quest_item.append("Alien Queen Head"))
                 else:    
                     prize = random.choice(list(Ship.Resources))
                     prize_amt = random.randint(1,3)

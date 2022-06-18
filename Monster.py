@@ -29,6 +29,6 @@ class Cyborg_Cruiser:
 
 class Alien_Queen:
     enemy_name = "Alien Queen"
-    enemy_Hp = 500
+    enemy_Hp = 50
     enemy_dmg = 10
     

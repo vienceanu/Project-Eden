@@ -3,6 +3,7 @@ import sys
 import time
 import json
 import time
+import textwrap
 import random
 import Monster
 from combat import combat
@@ -285,6 +286,7 @@ def navigation_mode():
             elif answer == "status":
                 print(f"Resources on the Ship are: {Ship.Resources} \n")
                 print(f"Fuel on the Ship is: {Ship.Fuel}\n")
+                print(f"Speacial Items: {Ship.quest_item}\n")
                 print(f"Location of the Ship is: {Ship.location}\n")
             elif answer == "survey":
                 print(f"Resources at {Ship.location} are:\n")
@@ -331,6 +333,10 @@ def navigation_mode():
                 if destination in solar_system and fuel_Check(destination) == True:
                     if destination == "sun":
                         combat(Monster.Alien_Queen.enemy_name, Monster.Alien_Queen.enemy_Hp, Monster.Alien_Queen.enemy_dmg)
+                    elif "Alien Queen Head" in Ship.quest_item and destination == "earth":
+                        story_file = open("earth.txt")
+                        file_contents2 = story_file.read()
+                        print (textwrap.fill(file_contents2, width=80))
                     else:
                         Ship.Fuel -= (abs(return_key(cur_location) - return_key(destination)))
                         Ship.location= destination
