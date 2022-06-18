@@ -13,6 +13,7 @@ class Ship:
     doge = 10000
     #Dock status, if docked 1 else 0
     dockStatus = 0
+    quest_item = []
     #For resources need a dictionary
     Resources = {"uranium": 0, "iron": 0, "titanium": 0, "water": 0, "hydrogen": 0, "helium": 0, "ore-x": 0, "torpedo": 0}
     
