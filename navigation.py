@@ -258,12 +258,14 @@ def navigation_mode():
         data = json.load(f)
 
     cur_location = Ship.location
-
+    print("Status Report")
     print("You drift Motionless through space\n")
-    #############################
-    print(Trader.location)
-    ################################
+    print(f"Resources on the Ship are: {Ship.Resources} ")
+    print(f"Fuel on the Ship is: {Ship.Fuel}")
+    print(f"Location of the Ship is: {Ship.location}")
     if Ship.location == Trader.location or Ship.location == Trader1.location:
+        
+        print("\n Important Bulletin!\n")
         print(f"There is a trader convoy at your current location, maybe they have some wares......\n")
     while True:
 
@@ -334,11 +336,6 @@ def navigation_mode():
                     print(cur_location)
                     print(f"Your new location: {Ship.location}")
                     print(f"Fuel Left: {Ship.Fuel}")
-                    print(f"initialized trader location: {Trader.location}")
-                    Trader.location == ""
-                    print(f"cleared trader location : {Trader.location}")
-                    Trader.location == trader_planet_move(solar_system)
-                    print(f"new trader location: {Trader.location}")
                     
                     navigation_mode()
 
