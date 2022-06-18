@@ -6,7 +6,6 @@ import time
 import random
 
 import Upgrading
-from combat import combat
 import descends.mars as mars_landing
 import descends.mercury as mercury_landing
 import descends.moon as moon_landing
@@ -44,6 +43,9 @@ class Jupiter:
     Resources = ["Hydrogen", "Helium"]
     Locations = ["Mt. Jupiter", "Alien Hole", "Storm's Eye"]
 
+class Earth:
+    Resources = ["You Can't do that Here!"]
+    Locations = ["Survivor's Enclave"]
 
 class Neptune:
     Resources = ["Hydrogen", "Helium"]
@@ -65,9 +67,6 @@ class Sun:
     Resources = ["Ore-X"]
     Locations = ["Orbit"]
 
-class Earth:
-    Resources = ["You Can't do that Here!"]
-    Locations = ["Survivor's Enclave"]
 
 #Data 
 landable_planet=["mercury", "venus", "mars", "pluto", "moon"]
@@ -270,8 +269,9 @@ def navigation_mode():
     ################################
     if Ship.location == Trader.location or Ship.location == Trader1.location:
         print(f"There is a trader convoy at your current location, maybe they have some wares......\n")
-    while True:
-        answer = input("Your Answer: ").strip()
+    while Ship.dockStatus == 0:
+
+        answer = input("Your Answer: ")
         if answer in verbs:
             if answer == "map":
                 print("Here is the map\n")
@@ -308,7 +308,7 @@ def navigation_mode():
 
             elif answer == "mine":
                 print(f"Mining.....")
-                time.sleep(3)
+                #time.sleep(3)
                 arr = str_to_class(Ship.location).Resources
                 for i in range(len(arr)):
                     Ship.Resources[arr[i].lower()] += 2
