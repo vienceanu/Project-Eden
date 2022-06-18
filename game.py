@@ -1,7 +1,7 @@
 from Load import *
 from Ship import *
 from navigation import *
-
+import textwrap
 
 exit = False
 inputs = ()
@@ -19,10 +19,10 @@ def intro():
         answer = input("Your Answer: ")
         if answer == "1":
             print("You enter the cockpit and are greeted by the ships A.I \n")
-            print(f"Greetings Captain {name}. I am your Ships A.I Cortana. \n")
+            print(f"Greetings Cadet {name}. I am your Ships A.I Cortana. \n")
             shipintro_file = open("shipsaiintro.txt")
             file_contents = shipintro_file.read()
-            print(file_contents)
+            print (textwrap.fill(file_contents, width=80))
             navigation_mode()
             
         elif answer == "2":
