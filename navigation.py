@@ -204,7 +204,7 @@ def upgrading_mode():
             print("You need the below resources to upgrade Laser Gun to the next level:")
             for item in list(Upgrading.Gun.Resources.keys()):
                 print(str(item) + ": " + str((Upgrading.Gun.Resources[item] * Ship.LGLevel)))
-            answer = input(print("Do you want to upgrade? Enter y or n:")).lower()
+            answer = input("Do you want to upgrade? Enter y or n:").lower()
             if answer == "y":
                 enough = True
                 for item in Upgrading.Gun.Resources:
@@ -223,6 +223,7 @@ def upgrading_mode():
                     write_to_json(data)
                     print("Upgrade complete.")
                     print("Your Laser Gun is now level " + str(Ship.LGLevel))
+                    return
 
                 else:
                     print("You do not have enough resources to upgrade.")
@@ -238,7 +239,7 @@ def upgrading_mode():
             print("You need the below resources to upgrade Ship Hull to the next level:")
             for item in list(Upgrading.Hull.Resources.keys()):
                 print(str(item) + ": " + str((Upgrading.Hull.Resources[item] * Ship.HullLevel)))
-            answer = input(print("Do you want to upgrade? Enter y or n:")).lower()
+            answer = input("Do you want to upgrade? Enter y or n:").lower()
             if answer == "y":
                 enough = True
                 for item in Upgrading.Hull.Resources:
@@ -254,6 +255,7 @@ def upgrading_mode():
                     write_to_json(data)
                     print("Upgrade complete.")
                     print("Your Ship Hull is now level " + str(Ship.HullLevel))
+                    return
                 else:
                     print("You do not have enough resources to upgrade.")
                 break
@@ -265,7 +267,7 @@ def upgrading_mode():
             print("You need the below resources to upgrade Ship Hull to the next level:")
             for item in list(Upgrading.Hull.Resources.keys()):
                 print(str(item) + ": " + str((Upgrading.Hull.Resources[item] * Ship.HullLevel)))
-            answer = input(print("Do you want to upgrade? Enter y or n:")).lower()
+            answer = input("Do you want to upgrade? Enter y or n:").lower()
             if answer == "y":
                 enough = True
                 for item in Upgrading.Hull.Resources:
@@ -281,6 +283,7 @@ def upgrading_mode():
                     write_to_json(data)
                     print("Upgrade complete.")
                     print("you crafted some extra fuel: " + str(Ship.Fuel))
+                    return
                 else:
                     print("You do not have enough resources to upgrade.")
                 break
