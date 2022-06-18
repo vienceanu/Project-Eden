@@ -59,11 +59,12 @@ def combat (enemy_name, enemy_Hp, enemy_dmg):
                 Ship.Resources[prize] += prize_amt
                 print(f"You have defeated the {enemy_name}, and took {prize_amt} {prize} they dropped\n")
                 return
-            Player_Hp = Player_Hp - enemy_dmg
+            player_dmg = random.randint(1,enemy_dmg)
+            Player_Hp = Player_Hp - player_dmg
             if Player_Hp <= 0:
                 print(f"Your ship has been destroyed! Game over\n")
                 exit()
-            print(f"Your ship takes {enemy_dmg} damage, and has {Player_Hp} HP left. \n")
+            print(f"Your ship takes {player_dmg} damage, and has {Player_Hp} HP left. \n")
         elif action == "flee":
             player_Flee = random.randint(1,100)
             enemy_Flee = random.randint(1,100)
