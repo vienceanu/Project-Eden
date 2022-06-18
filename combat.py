@@ -6,7 +6,6 @@ import json
 
 # Player Variables
 
-Player_Hp = 50
 Player_DMGLG = Ship.Inventory["LG"]
 Player_DMGTor = Ship.Inventory["Tor"]
 Player_DMG = Player_DMGLG
@@ -41,7 +40,9 @@ class Alien_Queen:
     enemy_dmg = 10
 
 def combat (enemy_name, enemy_Hp, enemy_dmg):
-    global Player_Hp
+    with open("data.json", "r") as f:
+        data = json.load(f)
+    Player_Hp = data['ship']['HP'] 
     # ename = enemy_name
     # enemy_Hp = 20
     print(f"{enemy_name} is approaching your ship, ready to attack")
@@ -84,14 +85,18 @@ def combat (enemy_name, enemy_Hp, enemy_dmg):
             file_contents = combat_help_file.read()
             print(file_contents)
             
-    # with open("data.json", "r") as f:
-    #     data = json.load(f)
-    # data['ship']['HP'] = Player_Hp
-    # write_to_json(data)
+    with open("data.json", "r") as f:
+        data = json.load(f)
+    data['ship']['HP'] = Player_Hp
+    write_to_json(data)
 
     
 # combat_intro()
 combat(Alien_Queen.enemy_name, Alien_Queen.enemy_Hp, Alien_Queen.enemy_dmg)
+combat(Alien_Queen.enemy_name, Alien_Queen.enemy_Hp, Alien_Queen.enemy_dmg)
+combat(Alien_Queen.enemy_name, Alien_Queen.enemy_Hp, Alien_Queen.enemy_dmg)
+combat(Alien_Queen.enemy_name, Alien_Queen.enemy_Hp, Alien_Queen.enemy_dmg)
+
             
             
             
