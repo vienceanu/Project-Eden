@@ -87,8 +87,8 @@ def combat ():
     # write_to_json(data)
 
     
-combat_intro()
-combat()
+# combat_intro()
+# combat()
             
             
             

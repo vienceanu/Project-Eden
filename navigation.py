@@ -5,6 +5,7 @@ import time
 import random
 
 import Upgrading
+from combat import combat
 import descends.mars as mars_landing
 import descends.mercury as mercury_landing
 import descends.moon as moon_landing
@@ -268,8 +269,7 @@ def navigation_mode():
         print("\n Important Bulletin!\n")
         print(f"There is a trader convoy at your current location, maybe they have some wares......\n")
     while True:
-
-        answer = input("Your Answer: ")
+        answer = input("Your Answer: ").strip()
         if answer in verbs:
             if answer == "map":
                 print("Here is the map\n")
@@ -336,7 +336,8 @@ def navigation_mode():
                     print(cur_location)
                     print(f"Your new location: {Ship.location}")
                     print(f"Fuel Left: {Ship.Fuel}")
-                    
+                    if random.randint(1,5) == 5:
+                        combat()
                     navigation_mode()
 
 
