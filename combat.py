@@ -51,8 +51,8 @@ def combat (enemy_name, enemy_Hp, enemy_dmg):
         action = input("Shoot | Flee | Change Weapon\n").lower()
         if action == "shoot":
             dmgtoe = Player_DMG + random.randint(0, 9)
-            print(f"you inflict {dmgtoe} damage, and your enemy has {enemy_Hp} HP left. \n")
             enemy_Hp = enemy_Hp - dmgtoe
+            print(f"you inflict {dmgtoe} damage, and your enemy has {enemy_Hp} HP left. \n")
             if enemy_Hp <= 0:
                 prize = random.choice(list(Ship.Resources))
                 prize_amt = random.randint(1,3)
@@ -63,7 +63,7 @@ def combat (enemy_name, enemy_Hp, enemy_dmg):
             if Player_Hp <= 0:
                 print(f"Your ship has been destroyed! Game over\n")
                 exit()
-            print(f"Your ship takes {dmgtoe} damage, and has {Player_Hp} HP left. \n")
+            print(f"Your ship takes {enemy_dmg} damage, and has {Player_Hp} HP left. \n")
         elif action == "flee":
             player_Flee = random.randint(1,100)
             enemy_Flee = random.randint(1,100)
