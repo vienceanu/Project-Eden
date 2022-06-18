@@ -54,11 +54,17 @@ def combat (enemy_name, enemy_Hp, enemy_dmg):
             enemy_Hp = enemy_Hp - dmgtoe
             print(f"you inflict {dmgtoe} damage, and your enemy has {enemy_Hp} HP left. \n")
             if enemy_Hp <= 0:
-                prize = random.choice(list(Ship.Resources))
-                prize_amt = random.randint(1,3)
-                Ship.Resources[prize] += prize_amt
-                print(f"You have defeated the {enemy_name}, and took {prize_amt} {prize} they dropped\n")
-                return
+                if enemy_name == "Alien Queen":
+                    Ship.quest_item += "Alien Queen Head"
+                    print(f"You have defeated the {enemy_name}, and took her head!\n")
+                    print(f"Head back to Earth and alert them that Ore-X is capable of being farmed for humanity's salvation!")
+                    return
+                else:    
+                    prize = random.choice(list(Ship.Resources))
+                    prize_amt = random.randint(1,3)
+                    Ship.Resources[prize] += prize_amt
+                    print(f"You have defeated the {enemy_name}, and took {prize_amt} {prize} they dropped\n")
+                    return
             player_dmg = random.randint(1,enemy_dmg)
             Player_Hp = Player_Hp - player_dmg
             if Player_Hp <= 0:
