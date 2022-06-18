@@ -21,6 +21,8 @@ def intro():
             print("You enter the cockpit and are greeted by the ships A.I \n")
             print(f"Greetings Cadet {name}. I am your Ships A.I Cortana. \n")
             shipintro_file = open("shipsaiintro.txt")
+            print("The mission, before we were pushed off course, was to kill the Alien Queen. \n")
+            print("She is located at the Sun, and is blocking all of our attempts at mining there \n")
             file_contents = shipintro_file.read()
             print (textwrap.fill(file_contents, width=80))
             navigation_mode()

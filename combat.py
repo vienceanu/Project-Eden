@@ -93,7 +93,8 @@ def combat (enemy_name, enemy_Hp, enemy_dmg):
             combat_help_file = open("combatHelp.txt")
             file_contents = combat_help_file.read()
             print(file_contents)
-            
+        else:
+            print("Not a valid Command, check Help?")    
     with open("data.json", "r") as f:
         data = json.load(f)
     data['ship']['HP'] = Player_Hp
@@ -101,7 +102,7 @@ def combat (enemy_name, enemy_Hp, enemy_dmg):
 
     
 # # combat_intro()
-# combat(Monster.Alien_Queen.enemy_name, Monster.Alien_Queen.enemy_Hp, Monster.Alien_Queen.enemy_dmg)
+combat(Monster.Alien_Queen.enemy_name, Monster.Alien_Queen.enemy_Hp, Monster.Alien_Queen.enemy_dmg)
 # combat(Alien_Queen.enemy_name, Alien_Queen.enemy_Hp, Alien_Queen.enemy_dmg)
 # combat(Alien_Queen.enemy_name, Alien_Queen.enemy_Hp, Alien_Queen.enemy_dmg)
 # combat(Alien_Queen.enemy_name, Alien_Queen.enemy_Hp, Alien_Queen.enemy_dmg)
