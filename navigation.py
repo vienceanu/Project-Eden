@@ -65,6 +65,9 @@ class Sun:
     Resources = ["Ore-X"]
     Locations = ["Orbit"]
 
+class Earth:
+    Resources = ["You Can't do that Here!"]
+    Locations = ["Survivor's Enclave"]
 
 #Data 
 landable_planet=["mercury", "venus", "mars", "pluto", "moon"]
