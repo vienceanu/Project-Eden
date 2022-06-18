@@ -4,7 +4,7 @@ import time
 import json
 import time
 import random
-
+from combat import combat
 import Upgrading
 import descends.mars as mars_landing
 import descends.mercury as mercury_landing
@@ -359,4 +359,4 @@ def navigation_mode():
             print("Command not recognized")
             
 #navigation mode testing, remove to launch game
-#navigation_mode()
+navigation_mode()

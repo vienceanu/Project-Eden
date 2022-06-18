@@ -1,3 +1,4 @@
+import math
 class Ship:
     #weapons
     LGLevel = 1
