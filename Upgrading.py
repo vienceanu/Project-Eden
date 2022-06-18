@@ -11,3 +11,7 @@ class Gun:
 class Hull:
     level = 1
     Resources = {"iron":3 * level, "titanium": 2 * level}
+
+class Fuel:
+    fuel_make = 50
+    Resources = {"hydrogen": 2 , "iron": 2}

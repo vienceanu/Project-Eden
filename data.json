@@ -2,7 +2,7 @@
     "money": 10000000000,
     "ship": {
         "DockStatus": 0,
-        "Doge": 10100,
+        "Doge": 10020,
         "Fuel": 99879,
         "HP": 50000,
         "Hull": 1.2,
@@ -18,7 +18,7 @@
             "hydrogen": 0,
             "iron": 38,
             "ore-x": 26,
-            "titanium": 38,
+            "titanium": 1,
             "torpedo": 0,
             "uranium": 56,
             "water": 0

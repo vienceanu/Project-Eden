@@ -194,6 +194,8 @@ def upgrading_mode():
             data = json.load(f)
         print("Your Laser Gun is at level " + str(Ship.LGLevel))
         print("Your Ship Hull is at level " + str(Ship.HullLevel))
+        print("Your Ship's fuel level is " + str(Ship.Fuel))
+        
         upgrade = input("What would you like to upgrade?: ").lower()
         if upgrade == "lg":
             if Ship.LGLevel == 5:
@@ -258,6 +260,33 @@ def upgrading_mode():
             elif answer == "n":
                 print("Upgrade cancelled.")
             else:
+                print("Command not recognized")        
+        elif upgrade == "fuel":
+            print("You need the below resources to upgrade Ship Hull to the next level:")
+            for item in list(Upgrading.Hull.Resources.keys()):
+                print(str(item) + ": " + str((Upgrading.Hull.Resources[item] * Ship.HullLevel)))
+            answer = input(print("Do you want to upgrade? Enter y or n:")).lower()
+            if answer == "y":
+                enough = True
+                for item in Upgrading.Hull.Resources:
+                    if Ship.Resources[item] < Upgrading.Hull.Resources[item]:
+                        enough = False
+                        break
+                if enough:
+                    for item in Upgrading.Hull.Resources:
+                        Ship.Resources[item] -= Upgrading.Hull.Resources[item]
+                        data['ship']['Resources'][item] = Ship.Resources[item]
+                    Ship.Fuel += 50
+                    data['ship']['Fuel'] = Ship.HullLevel
+                    write_to_json(data)
+                    print("Upgrade complete.")
+                    print("you crafted some extra fuel: " + str(Ship.Fuel))
+                else:
+                    print("You do not have enough resources to upgrade.")
+                break
+            elif answer == "n":
+                print("Upgrade cancelled.")
+            else:
                 print("Command not recognized")
         elif upgrade == "leave":
             break
@@ -288,6 +317,7 @@ def navigation_mode():
                 file_contents1 = navigation_help_file.read()
                 print(file_contents1)
             elif answer == "status":
+                print(f"Current amount of Doge: {Ship.doge} \n")
                 print(f"Resources on the Ship are: {Ship.Resources} \n")
                 print(f"Fuel on the Ship is: {Ship.Fuel}\n")
                 print(f"Speacial Items: {Ship.quest_item}\n")
