@@ -265,7 +265,7 @@ def navigation_mode():
     ################################
     if Ship.location == Trader.location or Ship.location == Trader1.location:
         print(f"There is a trader convoy at your current location, maybe they have some wares......\n")
-    while Ship.dockStatus == 0:
+    while True:
 
         answer = input("Your Answer: ")
         if answer in verbs:
@@ -303,13 +303,16 @@ def navigation_mode():
                 ###insert the string form the list to access the file.
 
             elif answer == "mine":
-                print(f"Mining.....")
-                #time.sleep(3)
-                arr = str_to_class(Ship.location).Resources
-                for i in range(len(arr)):
-                    Ship.Resources[arr[i].lower()] += 2
-                    data['ship']['Resources'][arr[i].lower()] = Ship.Resources[arr[i].lower()]
-                print(f"sucesffuly mined 2 x {str_to_class(Ship.location).Resources}")
+                if Ship.location == "earth":
+                    print("You can't do that here!!!")
+                else:
+                    print(f"Mining.....")
+                    #time.sleep(3)
+                    arr = str_to_class(Ship.location).Resources
+                    for i in range(len(arr)):
+                        Ship.Resources[arr[i].lower()] += 2
+                        data['ship']['Resources'][arr[i].lower()] = Ship.Resources[arr[i].lower()]
+                    print(f"sucesffuly mined 2 x {str_to_class(Ship.location).Resources}")
             elif answer == "trade" and Ship.location == Trader.location:
                 trader_mode()
             elif answer == "trade" and Ship.location == Trader1.location:
