@@ -102,7 +102,7 @@ def combat (enemy_name, enemy_Hp, enemy_dmg):
 
     
 # # combat_intro()
-combat(Monster.Alien_Queen.enemy_name, Monster.Alien_Queen.enemy_Hp, Monster.Alien_Queen.enemy_dmg)
+# combat(Monster.Alien_Queen.enemy_name, Monster.Alien_Queen.enemy_Hp, Monster.Alien_Queen.enemy_dmg)
 # combat(Alien_Queen.enemy_name, Alien_Queen.enemy_Hp, Alien_Queen.enemy_dmg)
 # combat(Alien_Queen.enemy_name, Alien_Queen.enemy_Hp, Alien_Queen.enemy_dmg)
 # combat(Alien_Queen.enemy_name, Alien_Queen.enemy_Hp, Alien_Queen.enemy_dmg)
