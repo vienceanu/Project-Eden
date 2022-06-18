@@ -1,3 +1,4 @@
+import math
 import sys
 import time
 import json
@@ -42,10 +43,7 @@ class Uranus:
 class Jupiter:
     Resources = ["Hydrogen", "Helium"]
     Locations = ["Mt. Jupiter", "Alien Hole", "Storm's Eye"]
-    
-class Earth:
-    Resources = ["You Can't do that Here!"]
-    Locations = ["Survivor's Enclave"]
+
 
 class Neptune:
     Resources = ["Hydrogen", "Helium"]
@@ -205,15 +203,18 @@ def upgrading_mode():
                         data['ship']['Resources'][item] = Ship.Resources[item]
                         write_to_json(data)
                     Ship.LGLevel = Ship.LGLevel + 1
+                    Ship.Inventory['LG'] = math.pow(2, Ship.LGLevel) + 6
+                    data['ship']['Inventory']['LG'] = Ship.Inventory['LG']
                     data['ship']['LGLevel'] = Ship.LGLevel
                     write_to_json(data)
                     print("Upgrade complete.")
                     print("Your Laser Gun is now level " + str(Ship.LGLevel))
+
                 else:
                     print("You do not have enough resources to upgrade.")
                 break
             elif answer == "n":
-                print("Upgrading cancelled.")
+                print("Upgradation cancelled.")
             else:
                 print("Command not recognized")
         elif upgrade == "hull":
@@ -259,14 +260,12 @@ def navigation_mode():
         data = json.load(f)
 
     cur_location = Ship.location
-    print("Status Report")
+
     print("You drift Motionless through space\n")
-    print(f"Resources on the Ship are: {Ship.Resources} ")
-    print(f"Fuel on the Ship is: {Ship.Fuel}")
-    print(f"Location of the Ship is: {Ship.location}")
+    #############################
+    print(Trader.location)
+    ################################
     if Ship.location == Trader.location or Ship.location == Trader1.location:
-        
-        print("\n Important Bulletin!\n")
         print(f"There is a trader convoy at your current location, maybe they have some wares......\n")
     while True:
         answer = input("Your Answer: ").strip()
@@ -305,16 +304,13 @@ def navigation_mode():
                 ###insert the string form the list to access the file.
 
             elif answer == "mine":
-                if Ship.location == "earth":
-                    print("You can't do that here!!!")
-                else:
-                    print(f"Mining.....")
-                    #time.sleep(3)
-                    arr = str_to_class(Ship.location).Resources
-                    for i in range(len(arr)):
-                        Ship.Resources[arr[i].lower()] += 2
-                        data['ship']['Resources'][arr[i].lower()] = Ship.Resources[arr[i].lower()]
-                    print(f"sucesffuly mined 2 x {str_to_class(Ship.location).Resources}")
+                print(f"Mining.....")
+                time.sleep(3)
+                arr = str_to_class(Ship.location).Resources
+                for i in range(len(arr)):
+                    Ship.Resources[arr[i].lower()] += 2
+                    data['ship']['Resources'][arr[i].lower()] = Ship.Resources[arr[i].lower()]
+                print(f"sucesffuly mined 2 x {str_to_class(Ship.location).Resources}")
             elif answer == "trade" and Ship.location == Trader.location:
                 trader_mode()
             elif answer == "trade" and Ship.location == Trader1.location:
@@ -351,9 +347,10 @@ def navigation_mode():
                 print("Enter hull to upgrade Ship Hull")
                 print("Enter leave to leave the crafting workshop")
                 upgrading_mode()
+                print("LG damage: " + str(Ship.Inventory['LG']))
 
         else:
             print("Command not recognized")
             
 #navigation mode testing, remove to launch game
-navigation_mode()
+#navigation_mode()
