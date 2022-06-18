@@ -1,7 +1,7 @@
 class Ship:
     #weapons
-    Inventory ={"LG": 2, "Tor": 10}
     LGLevel = 1
+    Inventory ={"LG": math.pow(2,LGLevel) + 6, "Tor": 10}
     HullLevel = 1
     Hull = 1.2
     HP = 50 * Hull
