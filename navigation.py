@@ -266,9 +266,6 @@ def navigation_mode():
     cur_location = Ship.location
 
     print("You drift Motionless through space\n")
-    #############################
-    print(Trader.location)
-    ################################
     if Ship.location == Trader.location or Ship.location == Trader1.location:
         print(f"There is a trader convoy at your current location, maybe they have some wares......\n")
     while True:
@@ -329,7 +326,7 @@ def navigation_mode():
                 quit()
             elif answer == "travel":
                 print(f"You are currently at {Ship.location}. Where would you like to travel?")
-                destination = input("Travel Destination:").lower()
+                destination = input("Travel Destination:\n").lower()
                 if destination in solar_system and fuel_Check(destination) == True:
                     if destination == "sun":
                         combat(Monster.Alien_Queen.enemy_name, Monster.Alien_Queen.enemy_Hp, Monster.Alien_Queen.enemy_dmg)
@@ -344,9 +341,10 @@ def navigation_mode():
                         data['ship']['Fuel'] = Ship.Fuel
                         data['ship']['location'] = Ship.location
                         write_to_json(data)
-                        print(f"Your new location: {Ship.location}")
-                        print(f"Fuel Left: {Ship.Fuel}")
+                        print(f"\nYour new location: {Ship.location.capitalize()}")
+                        print(f"Fuel Left: {Ship.Fuel}\n")
                         if random.randint(1,5) == 5:
+                            print("As you arrive, you sense an eerie presence....")
                             #roll monster table
                             if random.randint(1,11) <= 3 :
                                 combat(Monster.Pirate.enemy_name, Monster.Pirate.enemy_Hp, Monster.Pirate.enemy_dmg)
