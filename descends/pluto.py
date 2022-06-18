@@ -98,8 +98,7 @@ def descend():
         if command in directions:
             if command in current_room:
                 if random.randint(1,5) == 5:
-                      combat(Pirate.enemy_name, Pirate.enemy_Hp, Pirate.enemy_dmg)
-                      
+                  combat(Pirate.enemy_name, Pirate.enemy_Hp, Pirate.enemy_dmg)
                 current_room = locations[current_room[command]]
             else:
                 # bad movement

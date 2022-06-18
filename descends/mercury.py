@@ -16,10 +16,10 @@ Player_DMG = Player_DMGLG
 def write_to_json(data):
     with open("data.json", "w") as f:
         json.dump(data,f,indent=4,sort_keys=True)
-class Pirate:
-    enemy_name = "Pirate"
-    enemy_Hp = 10
-    enemy_dmg = 1
+class Alien:
+    enemy_name = "Alien"
+    enemy_Hp = 30
+    enemy_dmg = 5
 
 def combat (enemy_name, enemy_Hp, enemy_dmg):
     with open("data.json", "r") as f:
@@ -97,7 +97,7 @@ def descend():
         if command in directions:
             if command in current_room:
                 if random.randint(1,5) == 5:
-                  combat(Pirate.enemy_name, Pirate.enemy_Hp, Pirate.enemy_dmg)
+                  combat(Alien.enemy_name, Alien.enemy_Hp, Alien.enemy_dmg)
                 current_room = locations[current_room[command]]
             else:
                 # bad movement
