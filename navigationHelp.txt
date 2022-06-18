@@ -3,9 +3,13 @@
 # you can command the ships A.I to Map, Status,    #
 # Survey, Travel, Trade.                           #
 ####################################################
+# Craft - Craft Upgrades for the Ship              #
+# Descend - Descend to the Planet to explore       #
+# Exit - Leave the game, this will autosave data   #
 # Map - Brings up the Map of Solar System          #
+# Mine - Mine Resources at Current Location        #
 # Status - Shows status of ships                   #
 # Survey - Sruveys the planet for resources        #
-# Travel - leave trader                            #
+# Travel - Travel between Planets                  #
 # Trade - Access trader                            #
 ####################################################
