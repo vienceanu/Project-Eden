@@ -305,7 +305,7 @@ def navigation_mode():
 
             elif answer == "mine":
                 print(f"Mining.....")
-                #time.sleep(3)
+                time.sleep(3)
                 arr = str_to_class(Ship.location).Resources
                 for i in range(len(arr)):
                     Ship.Resources[arr[i].lower()] += 2
